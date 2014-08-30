@@ -1,0 +1,33 @@
+.nomination-example h1 {
+  background-color: purple
+}
+
+.card{
+	border-width: 1px;
+	border-style: solid;
+	border-color: grey;
+	min-height: 80px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	box-shadow: 0 -3px 5px 0 rgba(50, 50, 50, 0.75);
+}
+
+.card .glyphicon{
+	left: 40%;
+	padding-top: 10%;
+}
+
+.photo{
+	margin-right: 10px;
+}
+
+.photo img{
+	width: 40px;
+	height:55px;
+}
+
+.addPerson{
+	cursor: pointer;
+}

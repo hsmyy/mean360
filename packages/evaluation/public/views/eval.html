@@ -1,0 +1,74 @@
+<section class="container" ng-controller="EvaluationController">
+	<div id="wrapper" class="row-fluid">
+		<div class="col-md-2">
+			<nav class="nav-docs" role="complementary">
+				<div class="span3 " style="width: auto;">
+					<ul class="nav">
+						<li class="active"><a id="started-group"
+							href="#getting-started-overview" prevent-default=""
+							sscroll-to="getting-started-overview">目录</a>
+							<ul class="nav">
+								<li class=""><a href="#getting-started-overview"
+									prevent-default="" data-title="Overview">2014 评估</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="col-md-10 col-md-offset-2">
+		<div>
+			<h3>2014 评估:</h3>
+		</div>
+		<hr />
+		<div ng-show="phase == 0">
+
+			<div>
+				待评价者：<span class="badge">10</span>人 评价问题：<span class="badge">10</span>道
+				预计时间：<span class="badge">15</span>分钟
+			</div>
+			<div class="guide"></div>
+			<div class="row">
+				<div class="col-md-12">
+					<button ng-click="startEval()" class="btn btn-primary">请点击开始进入评估</button>
+				</div>
+			</div>
+		</div>
+
+		<div ng-show="phase == 1">
+			<div>问题 {{current + 1}} / {{questions.length}}：</div>
+			<div>{{questions[current].category}} :
+				{{questions[current].question}}</div>
+			<hr />
+			<div>
+				<form class="form-horizontal">
+					<fieldset>
+						<div class="control-group">
+							<div class="controls">
+								<!-- Multiple Checkboxes -->
+								<label class="checkbox"><button ng-click="next(0)"
+										class="btn btn-primary">非常好</button> </label> <label class="checkbox">
+									<button ng-click="next(1)" class="btn btn-success">很好</button>
+								</label> <label class="checkbox">
+									<button ng-click="next(2)" class="btn btn-info">一般</button>
+								</label> <label class="checkbox">
+									<button ng-click="next(3)" class="btn btn-warning">很差</button>
+								</label> <label class="checkbox">
+									<button ng-click="next(4)" class="btn btn-danger">非常差</button>
+								</label>
+							</div>
+
+						</div>
+
+					</fieldset>
+				</form>
+
+			</div>
+		</div>
+		<div ng-show="phase == 2">
+			<div>您已經完成了評估！</div>
+		</div>
+
+		<hr />
+	</div>
+</section>

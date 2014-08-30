@@ -118,6 +118,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'concurrent']);
   } else {
     grunt.registerTask('default', ['clean', 'jshint', 'csslint', 'concurrent']);
+//	  grunt.registerTask('default', ['clean','concurrent']);
   }
 
   //Test task.

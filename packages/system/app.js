@@ -19,6 +19,7 @@ System.register(function(app, auth, database) {
   System.routes(app, auth, database);
 
   System.aggregateAsset('css', 'common.css');
+  System.aggregateAsset('css', 'sheet.css');
 
   // The middleware in config/express will run before this code
 

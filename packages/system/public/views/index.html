@@ -1,3 +1,34 @@
-<section data-ng-controller="IndexController">
-  <h1 mean-token="'home-default'">This is the home view</h1>
+<section data-ng-controller="IndexController" class="container">
+	<div id="wrapper" class="row-fluid">
+		<div class="col-md-2">
+			<nav class="nav-docs" role="complementary">
+				<div class="span3 " style="width: auto;">
+					<ul class="nav">
+						<li class="active"><a id="started-group"
+							href="#getting-started-overview" prevent-default=""
+							sscroll-to="getting-started-overview">目录</a>
+							<ul class="nav">
+								<li class=""><a href="#getting-started-overview"
+									prevent-default="" data-title="Overview">任务提醒</a></li>
+								<li class=""><a href="#getting-started-installation"
+									prevent-default="" data-title="Installation"
+									ng-click="changeView()">360 介绍</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="col-md-10 col-md-offset-2">
+		<div class="row">
+			欢迎！
+		</div>
+		<div class="row">
+			正在进行的任务：
+		</div>
+		<hr/>
+		<div class="row">
+			<a href="#">2014年度360反馈提名</a>
+		</div>
+	</div>
 </section>
