@@ -18,22 +18,29 @@ Mean360.register(function(app, auth, database, users) {
 
 	//We are adding a link to the main menu for all authenticated users
 	Mean360.menus.add({
-		title : 'nomination',
-		link : 'nomination',
+		title : '選擇評價者',
+		link : '選擇評價者',
 		roles : [ 'authenticated' ],
 		menu : 'main'
 	});
 
 	Mean360.menus.add({
 		title : '评估',
-		link : 'evaluation',
+		link : '評估',
 		roles : [ 'authenticated' ],
 		menu : 'main'
 	});
 
 	Mean360.menus.add({
-		title : 'feedback',
-		link : 'feedback',
+		title : '反饋',
+		link : '反饋',
+		roles : [ 'authenticated' ],
+		menu : 'main'
+	});
+	
+	Mean360.menus.add({
+		title : '管理',
+		link : '管理',
 		roles : [ 'authenticated' ],
 		menu : 'main'
 	});

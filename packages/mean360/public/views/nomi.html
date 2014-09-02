@@ -24,7 +24,8 @@
 			<h3>2014年度360反馈提名</h3>
 		</div>
 		
-		<div ng-repeat="item in nomi">
+		<div ng-show="!isFinish">
+			<div ng-repeat="item in nomi">
 			<div class="row">
 				<div class="col-md-12">
 					<div>
@@ -64,6 +65,12 @@
         		</table>
 			</div>
 		</div>
+		<hr/>
+		<div class="command">
+			<button class="btn btn-primary" ng-click="finish()">提交</button>
+		</div>
+		</div>
+		
 		<div ng-show="isFinish">恭喜您，提名完成！</div>
 	</div>
 </section>

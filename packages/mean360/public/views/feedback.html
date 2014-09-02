@@ -1,5 +1,6 @@
 
 <section class="container" ng-controller="FeedbackController">
+	<div growl></div>
 	<div id="wrapper" class="row-fluid">
 		<div class="col-md-2">
 			<nav class="nav-docs" role="complementary">
@@ -18,14 +19,260 @@
 		</div>
 	</div>
 	<div class="col-md-10 col-md-offset-2">
-		<div class="row">2014 评估结果</div>
-		<hr />
+		<h3>2014 评估结果</h3>
+		<hr class="sectionBreak" />
 		<tabset> <tab heading="評估結果">
 		<div class="row">
+			<h4>1. 綜合評價</h4>
 			<highchart id="chart1" config="chartConfig" class="span10"></highchart>
 		</div>
-		<hr />
+		<hr class="sectionBreak" />
+
 		<div class="row">
+			<h4>2. 優勢與待發展項目</h4>
+			<div class="blackfont">優勢</div>
+			<table class="table">
+				<tbody>
+					<tr class="category-tableitem">
+						<td>TOP1</td>
+						<td>人際關係經營</td>
+						<td>3.6</td>
+					</tr>
+					<tr>
+						<td>40.</td>
+						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
+						<td>3.8</td>
+					</tr>
+					<tr>
+						<td>40.</td>
+						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
+						<td>3.8</td>
+					</tr>
+					<tr class="category-tableitem">
+						<td>TOP2</td>
+						<td>人際關係經營</td>
+						<td>3.6</td>
+					</tr>
+					<tr>
+						<td>40.</td>
+						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
+						<td>3.8</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="blackfont">優勢</div>
+			<table class="table">
+				<tbody>
+					<tr class="category-tableitem">
+						<td>TOP1</td>
+						<td>人際關係經營</td>
+						<td>3.6</td>
+					</tr>
+					<tr>
+						<td>40.</td>
+						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
+						<td>3.8</td>
+					</tr>
+					<tr>
+						<td>40.</td>
+						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
+						<td>3.8</td>
+					</tr>
+					<tr class="category-tableitem">
+						<td>TOP2</td>
+						<td>人際關係經營</td>
+						<td>3.6</td>
+					</tr>
+					<tr>
+						<td>40.</td>
+						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
+						<td>3.8</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="row">
+			<h4>3. 自我認知偏差</h4>
+			<highchart id="chart2" config="chartConfig2" class="span10"></highchart>
+		</div>
+		<hr class="sectionBreak"/>
+
+		<div class="row">
+			<h4>4. 他評分歧</h4>
+			<highchart id="chart3" config="chartConfig3" class="span10"></highchart>
+		</div>
+		<hr class="sectionBreak"/>
+		
+		<div class="row">
+			<h4>5. 不同人眼中表現突出的行爲</h4>
+			<div class="col-md-6">
+				<h4 class="blackfont">High</h4>
+				<table class="table">
+					<tbody>
+						<tr class="category-tableitem">
+							<td colspan="3">上級</td>
+							<td>所屬類別</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table">
+					<tbody>
+						<tr class="category-tableitem">
+							<td colspan="3">同事</td>
+							<td>所屬類別</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table">
+					<tbody>
+						<tr class="category-tableitem">
+							<td colspan="3">下屬</td>
+							<td>所屬類別</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-6">
+				<h4 class="blackfont">Low</h4>
+				<table class="table">
+					<tbody>
+						<tr class="category-tableitem">
+							<td colspan="3">上級</td>
+							<td>所屬類別</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table">
+					<tbody>
+						<tr class="category-tableitem">
+							<td colspan="3">同事</td>
+							<td>所屬類別</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table">
+					<tbody>
+						<tr class="category-tableitem">
+							<td colspan="3">下屬</td>
+							<td>所屬類別</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
+							<td>4.0</td>
+							<td>戰略執行</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<hr class="sectionBreak"/>
+
+		<div class="row">
+			<h4>5. 發展建議</h4>
 			<table class="table">
 				<thead>
 					<tr>
@@ -76,6 +323,32 @@
 				</tbody>
 			</table>
 		</div>
+		<hr class="sectionBreak"/>
+
+		<div class="row">
+			<h4>7. 得分詳情</h4>
+			<table ng-table="tableParams" class="table">
+				<tbody ng-repeat="group in $groups">
+					<tr class="ng-table-group">
+						<td colspan="{{$columns.length}}"><a href=""
+							ng-click="group.$hideRows = !group.$hideRows"> <span
+								class="glyphicon"
+								ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
+								<strong>{{ group.value }}</strong>
+						</a></td>
+					</tr>
+					<tr ng-hide="group.$hideRows" ng-repeat="user in group.data">
+						<td sortable="question" data-title="'題目'">{{user.question}}</td>
+						<td sortable="self" data-title="'自評'">{{user.self}}</td>
+						<td sortable="boss" data-title="'上級'">{{user.boss}}</td>
+						<td sortable="peer" data-title="'同事'">{{user.peer}}</td>
+						<td sortable="sub" data-title="'下級'">{{user.sub}}</td>
+						<td sortable="others" data-title="'他評'">{{user.others}}</td>
+						<td sortable="diff" data-title="'分差'">{{user.diff}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		</tab> <tab heading="行動計劃">
 		<div ng-repeat="item in analysis">
 			<div class="row">
@@ -95,7 +368,7 @@
 							</span>
 						</div>
 						<!-- /input-group -->
-						
+
 						<ul class="list-group">
 							<li class="list-group-item"
 								ng-repeat="act in actions[$parent.$index].tags[$index].action">{{act}}</li>
@@ -104,7 +377,7 @@
 				</div>
 			</div>
 		</div>
-		<hr />
+		<hr class="sectionBreak"/>
 		<div class="command">
 			<button class="btn" ng-click="preview()">{{previewSet[previewIdx].command}}</button>
 			<button class="btn btn-primary" ng-click="save()">保存</button>
@@ -112,5 +385,5 @@
 		<h4></h4>
 		</tab> </tabset>
 	</div>
-	<div growl></div>
+
 </section>

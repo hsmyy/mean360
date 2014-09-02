@@ -11,6 +11,36 @@
 	min-height: 600px;
 }
 
-body{
+body {
 	background: #e9e9e9;
+}
+
+.nav-docs .nav>.active>a
+{
+	padding-left: 18px;
+	font-weight: 700;
+	color: #0f96ba;
+	background-color: transparent;
+	opacity: 1;
+}
+
+.command{
+	text-align: center;
+}
+
+.command button{
+	margin-right: 15px;
+}
+
+.category-tableitem{
+	background-color:black;
+	color:white;
+}
+
+.blackfont{
+	font-weight: 700;
+}
+
+.sectionBreak{
+	border-color: #7DCCC9;
 }
