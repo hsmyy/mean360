@@ -11,10 +11,10 @@ var Mean360 = new Module('Mean360');
  * All MEAN packages require registration
  * Dependency injection is used to define required modules
  */
-Mean360.register(function(app, auth, database) {
+Mean360.register(function(app, auth, database, users) {
 
 	//We enable routing. By default the Package Object is passed to the routes
-	Mean360.routes(app, auth, database);
+	Mean360.routes(app, auth, database, users);
 
 	//We are adding a link to the main menu for all authenticated users
 	Mean360.menus.add({

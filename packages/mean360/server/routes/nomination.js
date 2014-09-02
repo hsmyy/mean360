@@ -1,5 +1,7 @@
 'use strict';
 
+var QuestionService = require('../service/question');
+
 // The Package is past automatically as first parameter
 module.exports = function(Nomination, app, auth, database) {
 
@@ -23,4 +25,15 @@ module.exports = function(Nomination, app, auth, database) {
       res.send(html);
     });
   });
+
+  app.get('/questions', function(req, res, next){
+    function afterGetAllQuestions(err, questions){
+      if(err){
+        req.flash('error', err);
+        return res.redirect('/');
+      }
+      res.json(questions);
+    }
+    QuestionService.getAllQuestion(afterGetAllQuestions);
+  })
 };
