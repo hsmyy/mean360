@@ -1,11 +1,21 @@
 'use strict';
 
-angular.module('mean.mean360').controller('FeedbackController', ['$scope', 'Global', 'Feedback',
-  function($scope, Global, Feedback) {
+angular.module('mean.mean360').controller('FeedbackController', ['$scope', 'Global', 'Feedback', 'growl',
+  function($scope, Global, Feedback, growl) {
     $scope.global = Global;
     $scope.package = {
       name: 'feedback'
     };
+    
+    $scope.previewIdx = 1;
+    
+    $scope.previewSet = [{
+    	'preview' : false,
+    	'command' : '編輯'
+    },{
+    	'preview' : true,
+    	'command' : '預覽'
+    }];
     
     $scope.score = {
     	'category' : ['洞察力','前瞻性','果断性','乐观','模糊耐受性'],
@@ -14,12 +24,71 @@ angular.module('mean.mean360').controller('FeedbackController', ['$scope', 'Glob
     	'low': [8, 10, 10, 6, 5]
     };
     
-    $scope.analysis = {
-    		'develop' : ['团队合作'],
-    		'blind' : ['前瞻预测','绩效管理'],
-    		'protential' : ['规划管理','授权管理','抗压能力'],
-    		'advantage' : ['培养下属','人际关系经营']
-    };
+    $scope.analysis = [{
+    	'name' : '待发展共识区',
+    	'tags' : ['团队合作']
+    },{
+    	'name' : '盲区',
+    	'tags' : ['前瞻预测','绩效管理']
+    },{
+    	'name' : '潜能区',
+    	'tags' : ['规划管理','授权管理','抗压能力']
+    },{
+    	'name' : '优势共识区',
+    	'tags' : ['培养下属','人际关系经营']
+    }];
+   
+    $scope.actionInput = [{
+    	'tags' :[{
+    		'action' : ''
+    	}]
+    },{
+    	'tags' :[{
+    		'action' : ''
+    	},{
+    		'action' : ''
+    	}]
+    },{
+    	'tags' :[{
+    		'action' : ''
+    	},{
+    		'action' : ''
+    	},{
+    		'action' : ''
+    	}]
+    },{
+    	'tags' :[{
+    		'action' : ''
+    	},{
+    		'action' : ''
+    	}]
+    }];
+    
+    $scope.actions = [{
+    	'tags' :[{
+    		'action' :[]
+    	}]
+    },{
+    	'tags' :[{
+    		'action' :[]
+    	},{
+    		'action' :[]
+    	}]
+    },{
+    	'tags' :[{
+    		'action' :[]
+    	},{
+    		'action' :[]
+    	},{
+    		'action' :[]
+    	}]
+    },{
+    	'tags' :[{
+    		'action' :[]
+    	},{
+    		'action' :[]
+    	}]
+    }];
     
     $scope.chartConfig = {
             options: {
@@ -46,5 +115,29 @@ angular.module('mean.mean360').controller('FeedbackController', ['$scope', 'Glob
 
             loading: false
         };
+    $scope.addAction = function(categoryId, tagId){
+    	var actionSet = $scope.actions[categoryId].tags[tagId].action;
+    	var action = $scope.actionInput[categoryId].tags[tagId].action.trim();
+    	if(action.length > 0){
+    		var dup = false;
+    		for(var i = 0, n = actionSet.length; i < n; i += 1){
+    			if(actionSet[i].toLowerCase() === action.toLowerCase()){
+    				dup = true;
+    				break;
+    			}
+    		}
+    		if(!dup){
+    			actionSet.push(action);
+    		}
+    	}
+    };
+    
+    $scope.preview = function(){
+    	$scope.previewIdx = 1 - $scope.previewIdx;
+    };
+    
+    $scope.save = function(){
+    	growl.addSuccessMessage('This adds a success message',{'ttl':3000});
+    };
   }
 ]);

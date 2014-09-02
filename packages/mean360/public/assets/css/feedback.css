@@ -17,3 +17,26 @@
 .badge-success{
 	background-color: #5cb85c;
 }
+
+
+.action-item{
+	padding-top:7px;
+	text-align:right;
+}
+
+.action-items{
+	margin-bottom:5px;
+}
+
+.action-items ul{
+	margin-top: 5px;
+}
+
+.command{
+	text-align: center;
+}
+
+.command button{
+	margin-right: 15px;
+}
+

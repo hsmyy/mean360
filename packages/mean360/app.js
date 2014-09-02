@@ -38,7 +38,7 @@ Mean360.register(function(app, auth, database, users) {
 		menu : 'main'
 	});
 
-	Mean360.angularDependencies(['ngTable','highcharts-ng']);
+	Mean360.angularDependencies(['ngTable','highcharts-ng','angular-growl']);
 	/**
 	  //Uncomment to use. Requires meanio@0.3.7 or above
 	  // Save settings with callback
@@ -69,6 +69,9 @@ Mean360.register(function(app, auth, database, users) {
 	Mean360.aggregateAsset('css', 'feedback.css');
 	Mean360.aggregateAsset('js', 'highcharts.src.js');
 	Mean360.aggregateAsset('js', 'highcharts-ng.js');
+	
+	Mean360.aggregateAsset('css','angular-growl.min.css');
+	Mean360.aggregateAsset('js','angular-growl.js');
 
 	return Mean360;
 });
