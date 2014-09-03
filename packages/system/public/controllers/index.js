@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', '$http', 'Global', 'growl',
-    function ($scope, $http, Global, growl) {
+angular.module('mean.system').controller('IndexController', ['$scope', '$http', 'Global',
+    function ($scope, $http, Global) {
         $scope.global = Global;
 
         $scope.createNewEvaluation = function () {
@@ -14,7 +14,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$http', 
                 name: name,
                 description: description
             }).success(function(data, status) {
-                alert('Ajax succeeded!')
+                alert('Ajax succeeded!');
             }).error(function(data, status) {
                 alert('Ajax failed: ' + status);
             });

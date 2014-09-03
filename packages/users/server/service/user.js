@@ -17,6 +17,10 @@ exports.getRelatedUsers = function(id, callback) {
       });
     },
     function(user, cb) {
+      // HOTFIX [Fify] When the parent is undefined will cause the server down.
+      if(!user.parent) {
+          return;
+      }
       result.parent.push(user.parent);
       User.find({parent: user.parent._id}).exec(function(err, siblings) {
         cb(err, siblings, user);
