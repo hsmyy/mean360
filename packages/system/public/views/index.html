@@ -39,18 +39,18 @@
 				<div class="form-group">
 					<label class="col-md-2">评估名称</label>
 					<div class="col-md-10">
-						<input class="form-control input-sm">
+						<input class="form-control input-sm" data-ng-model="evaluationName">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-2">评估简介</label>
 					<div class="col-md-10">
-						<textarea class="form-control" rows="3"></textarea>
+						<textarea class="form-control" rows="3" data-ng-model="evaluationDescription"></textarea>
 					</div>
 				</div>
 				<hr/>
 				<div class="command">
-					<button class="btn btn-primary">提交</button>
+					<button class="btn btn-primary" data-ng-click="createNewEvaluation()">提交</button>
 				</div>
 			</form>
 		</div>
