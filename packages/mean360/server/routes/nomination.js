@@ -26,7 +26,7 @@ module.exports = function(Nomination, app, auth, database) {
     });
   });
 
-  app.get('/questions', function(req, res, next){
+  app.get('/questions', function(req, res){
     function afterGetAllQuestions(err, questions){
       if(err){
         req.flash('error', err);

@@ -18,13 +18,16 @@ var validatePresenceOf = function(value) {
 var validateUniqueEmail = function(value, callback) {
   var User = mongoose.model('User');
   User.find({
-    $and: [{
-      email: value
-    }, {
-      _id: {
-        $ne: this._id
+    $and: [
+      {
+        email: value
+      },
+      {
+        _id: {
+          $ne: this._id
+        }
       }
-    }]
+    ]
   }, function(err, user) {
     callback(err || user.length === 0);
   });
@@ -38,6 +41,16 @@ var UserSchema = new Schema({
   name: {
     type: String,
     required: true
+  },
+  position: {
+    type: String
+  },
+  department: {
+    type: String
+  },
+  parent: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   },
   email: {
     type: String,
@@ -59,18 +72,11 @@ var UserSchema = new Schema({
     type: String,
     validate: [validatePresenceOf, 'Password cannot be blank']
   },
-  provider: {
-    type: String,
-    default: 'local'
-  },
+
   salt: String,
   resetPasswordToken: String,
-  resetPasswordExpires: Date,
-  facebook: {},
-  twitter: {},
-  github: {},
-  google: {},
-  linkedin: {}
+  resetPasswordExpires: Date
+
 });
 
 /**
@@ -88,7 +94,7 @@ UserSchema.virtual('password').set(function(password) {
  * Pre-save hook
  */
 UserSchema.pre('save', function(next) {
-  if (this.isNew && this.provider === 'local' && this.password && !this.password.length)
+  if(this.isNew && this.provider === 'local' && this.password && !this.password.length)
     return next(new Error('Invalid password'));
   next();
 });
@@ -149,7 +155,7 @@ UserSchema.methods = {
    * @api public
    */
   hashPassword: function(password) {
-    if (!password || !this.salt) return '';
+    if(!password || !this.salt) return '';
     var salt = new Buffer(this.salt, 'base64');
     return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
   }
