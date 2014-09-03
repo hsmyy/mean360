@@ -41,15 +41,33 @@ module.exports = function(MeanUser, app, auth, database, passport) {
       });
     });
 
-  app.route('/related_users').get(function(req, res){
-    function afterGetAllRelatedUsers(err, users){
-      if(err){
+  app.route('/related_users').get(function(req, res) {
+    UserService.getRelatedUsers(req.user._id, function(err, users){
+      if(err) {
         req.flash('error', err);
         return res.redirect('/');
       }
       res.json(users);
-    }
-    UserService.getRelatedUsers(req.user._id,afterGetAllRelatedUsers);
+    });
+  });
+
+  app.route('/choose_nominators').post(function(req, res) {
+    UserService.chooseNominators(req.user._id, req.body, function(err){
+      if(err) {
+        req.flash('error', err);
+        return res.redirect('/');
+      }
+    });
+  });
+
+  app.route('/get_evaluatees').get(function(req, res){
+    UserService.getEvaluatees(req.user._id, function(err, users){
+      if(err) {
+        req.flash('error', err);
+        return res.redirect('/');
+      }
+      res.json(users);
+    })
   })
 
 };

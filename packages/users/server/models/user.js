@@ -52,6 +52,9 @@ var UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
+  nominators:{
+    type: [{type: Schema.Types.ObjectId,ref:'User'}]
+  },
   email: {
     type: String,
     required: true,

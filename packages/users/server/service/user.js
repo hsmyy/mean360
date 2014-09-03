@@ -47,10 +47,19 @@ exports.chooseNominators = function(id, nominatorIds, callback) {
       });
     },
     function(user, cb){
-      user.nominator = nominatorIds;
+      user.nominators = nominatorIds;
       user.save();
       cb(null, user);
     }
   ], callback);
+};
 
+exports.getEvaluatees = function(id, callback){
+  async.waterfall([
+    function(cb){
+      User.find({nominators:{"$in":[id]}}).exec(function(err, users){
+        cb(err, users)
+      });
+    }
+  ], callback);
 };

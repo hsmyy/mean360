@@ -30,9 +30,10 @@ angular.module('mean.mean360').controller(
             add: false,
             choose: [],
             candidates: data.children,
-            maxNum:5
+            maxNum: 5
           }
         ];
+
         var bossCandidate = $scope.nomi[0].candidates;
 //					var peerCandidate = $scope.nomi[1].candidates;
         var subCandidate = $scope.nomi[2].candidates;
@@ -99,6 +100,15 @@ angular.module('mean.mean360').controller(
 
         $scope.finish = function() {
           $scope.isFinish = !$scope.isFinish;
+          var nominators = [];
+          for(var i = 0; i < $scope.nomi.length; ++i) {
+            for(var j = 0; j < $scope.nomi[i].choose.length; ++j) {
+              nominators.push($scope.nomi[i].choose[j]._id);
+            }
+          }
+          $http.post('choose_nominators', nominators).success(function(data) {
+
+          })
         };
 
         $scope.delCandidate = function(idx, type) {
@@ -114,7 +124,6 @@ angular.module('mean.mean360').controller(
         };
 
       });
-
 
 
     } ]);
