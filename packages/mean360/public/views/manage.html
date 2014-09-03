@@ -21,7 +21,7 @@
 	</div>
 	<div class="col-md-10 col-md-offset-2">
 		<h3>360 管理</h3>
-		<hr />
+		<hr class="sectionBreak"/>
 		<h4>進度管理</h4>
 		<div class="row">
 			<tabset> <tab heading="選擇評價者">
@@ -41,10 +41,10 @@
 					<span class="sr-only">45% Complete</span>
 				</div>
 			</div>
-			<hr>
+			<hr class="sectionBreak"/>
 			<div class="command">
-				<button class="btn">開始</button>
-				<button class="btn">提醒未完成者</button>
+				<button class="btn btn-default">開始</button>
+				<button class="btn btn-default">提醒未完成者</button>
 				<button class="btn btn-primary">結束</button>
 			</div>
 			</tab> <tab heading="評價">
@@ -64,7 +64,7 @@
 					<span class="sr-only">45% Complete</span>
 				</div>
 			</div>
-			<hr>
+			<hr class="sectionBreak"/>
 			<div class="command">
 				<button class="btn">開始</button>
 				<button class="btn">提醒未完成者</button>
@@ -87,7 +87,7 @@
 					<span class="sr-only">45% Complete</span>
 				</div>
 			</div>
-			<hr>
+			<hr class="sectionBreak"/>
 			<div class="command">
 				<button class="btn">開始</button>
 				<button class="btn">提醒未完成者</button>
@@ -95,18 +95,23 @@
 			</div>
 			</tab> </tabset>
 		</div>
-		<hr />
+		<hr  class="sectionBreak"/>
 		<h4>配置管理</h4>
 		<div class="row">
 			<div class="alert alert-danger" role="alert">
 				注意：以上項目在360評價開始後無法更改，請認真填寫！</div>
+			<div class="alert alert-info" role="alert">
+				注意：由于360项目已经开始，以下项目无法修改
+			</div>
 			<tabset> <tab heading="時間">
 			<div class="row">
-				<div class="col-md-3">選擇評價者</div>
-				<div class="col-md-6">
-					<div>開始：</div>
-					<p class="input-group">
-						<input type="text" class="form-control"
+				<div class="col-md-12">
+					<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="col-md-2">选择评价者</label>
+					<div class="col-md-4">
+						<div class="input-group">
+							<input type="text" class="form-control"
 							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
 							min-date="minDate" max-date="'2015-06-22'"
 							datepicker-options="dateOptions"
@@ -116,11 +121,12 @@
 								ng-click="open($event)">
 								<i class="glyphicon glyphicon-calendar"></i>
 							</button>
-						</span>
-					</p>
-					<div>結束：</div>
-					<p class="input-group">
-						<input type="text" class="form-control"
+							</span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="input-group">
+							<input type="text" class="form-control"
 							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
 							min-date="minDate" max-date="'2015-06-22'"
 							datepicker-options="dateOptions"
@@ -130,108 +136,112 @@
 								ng-click="open($event)">
 								<i class="glyphicon glyphicon-calendar"></i>
 							</button>
-						</span>
-					</p>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2">评价</label>
+					<div class="col-md-4">
+						<div class="input-group">
+							<input type="text" class="form-control"
+							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+							min-date="minDate" max-date="'2015-06-22'"
+							datepicker-options="dateOptions"
+							date-disabled="disabled(date, mode)" ng-required="true"
+							close-text="Close" /> <span class="input-group-btn">
+							<button type="button" class="btn btn-default"
+								ng-click="open($event)">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="input-group">
+							<input type="text" class="form-control"
+							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+							min-date="minDate" max-date="'2015-06-22'"
+							datepicker-options="dateOptions"
+							date-disabled="disabled(date, mode)" ng-required="true"
+							close-text="Close" /> <span class="input-group-btn">
+							<button type="button" class="btn btn-default"
+								ng-click="open($event)">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2">反馈</label>
+					<div class="col-md-4">
+						<div class="input-group">
+							<input type="text" class="form-control"
+							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+							min-date="minDate" max-date="'2015-06-22'"
+							datepicker-options="dateOptions"
+							date-disabled="disabled(date, mode)" ng-required="true"
+							close-text="Close" /> <span class="input-group-btn">
+							<button type="button" class="btn btn-default"
+								ng-click="open($event)">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="input-group">
+							<input type="text" class="form-control"
+							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+							min-date="minDate" max-date="'2015-06-22'"
+							datepicker-options="dateOptions"
+							date-disabled="disabled(date, mode)" ng-required="true"
+							close-text="Close" /> <span class="input-group-btn">
+							<button type="button" class="btn btn-default"
+								ng-click="open($event)">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</form>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-3">評價</div>
-				<div class="col-md-6">
-					<div>開始：</div>
-					<p class="input-group">
-						<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-						</span>
-					</p>
-					<div>結束：</div>
-					<p class="input-group">
-						<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-						</span>
-					</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">反饋</div>
-				<div class="col-md-6">
-					<div>開始：</div>
-					<p class="input-group">
-						<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-						</span>
-					</p>
-					<div>結束：</div>
-					<p class="input-group">
-						<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-						</span>
-					</p>
-				</div>
-			</div>
-
+			
 			</tab> <tab heading="選擇評價者">
 
 			<form class="form-horizontal">
 				<fieldset>
 					<div id="legend" class="">
-						<legend class="">評價者最大數量</legend>
+						<legend class="">评价者最大數量</legend>
 					</div>
-					<div class="control-group">
+					<div class="control-group clearfix">
 						<!-- Text input-->
-						<label class="control-label" for="input01">上司</label>
-						<div class="controls">
-							<input type="text" placeholder="placeholder" class="input-xlarge">
+						<label class="control-label col-md-2" for="input01">上司</label>
+						<div class="controls col-md-6">
+							<input type="text" placeholder="范围：1到2" class="input-xlarge form-control">
 						</div>
 					</div>
-					<div class="control-group">
+					<div class="control-group clearfix">
 						<!-- Text input-->
-						<label class="control-label" for="input01">同事</label>
-						<div class="controls">
-							<input type="text" placeholder="placeholder" class="input-xlarge">
+						<label class="control-label col-md-2" for="input01">同事</label>
+						<div class="controls col-md-6">
+							<input type="text" placeholder="范围：4到6" class="input-xlarge form-control">
 						</div>
 					</div>
-					<div class="control-group">
+					<div class="control-group clearfix">
 						<!-- Text input-->
-						<label class="control-label" for="input01">下屬</label>
-						<div class="controls">
-							<input type="text" placeholder="placeholder" class="input-xlarge">
+						<label class="control-label col-md-2" for="input01">下属</label>
+						<div class="controls col-md-6">
+							<input type="text" placeholder="范围：4到6" class="input-xlarge form-control">
 						</div>
 					</div>
 				</fieldset>
 			</form>
-			</tab> <tab heading="評價">
+			</tab> <tab heading="评价">
+				<h4>评价模型</h4>			
 				<table ng-table="tableParams" class="table">
 				<tbody ng-repeat="group in $groups">
 					<tr class="ng-table-group">
@@ -248,17 +258,17 @@
 					</tr>
 				</tbody>
 			</table>
-				<hr />
+				<hr class="sectionBreak"/>
 				<div class="row">
 					<div class="col-md-6">
-						<h4>創建問題類型</h4>
+						<h4>创建问题类型</h4>
 						<div class="well">
 							<input type="text" class="form-control" placeholder="Text input">
-							<button class="btn">創建</button>
+							<button class="btn btn-default">创建</button>
 						</div>
 					</div>
 					<div class="col-md-6">
-						<h4>創建問題</h4>
+						<h4>创建问题</h4>
 						<div class="well">
 							<select class="form-control">
   								<option>1</option>
@@ -268,14 +278,14 @@
   								<option>5</option>
 							</select>
 							<input type="text" class="form-control" placeholder="Text input">
-							<button class="btn">創建</button>
+							<button class="btn btn-default">创建</button>
 						</div>
 					</div>
 				</div>
 			</tab><tab heading="反饋">
 				
 			</tab></tabset>
-			<hr/>
+			<hr class="sectionBreak"/>
 			<div class="command">
 				<button class="btn btn-primary">保存</button>
 			</div>

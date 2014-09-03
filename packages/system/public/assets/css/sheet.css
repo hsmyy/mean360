@@ -44,3 +44,7 @@ body {
 .sectionBreak{
 	border-color: #7DCCC9;
 }
+
+table td{
+	text-align:center;
+}

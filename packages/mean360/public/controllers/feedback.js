@@ -22,10 +22,10 @@ angular
 
 							$scope.previewSet = [ {
 								'preview' : false,
-								'command' : '編輯'
+								'command' : '编辑'
 							}, {
 								'preview' : true,
-								'command' : '預覽'
+								'command' : '预览'
 							} ];
 
 							$scope.score = {
@@ -136,17 +136,17 @@ angular
 									}
 								},
 								title : {
-									text : 'Column chart with negative values'
+									text : ''
 								},
 								xAxis : {
-									categories : [ '在準確評估下屬能力的基礎上授予合理的工作權限', '對組織戰略有全面深入的理解',
-											'爲各項工作設置清晰的完成標準和時限', '給關鍵工作分配更多的人手或其他資源', '有良好的授權意識，願意將工作分配給下屬' ]
+									categories : [ '在准确评估下属能力的基础上授予合理的工作权限', '对组织战略有全面深入的理解',
+											'为各项工作设置清晰的完成标准和时限', '给关键工作分配更多的人手或其他资源', '有良好的授权意识，愿意將工作分配給下属' ]
 								},
 								credits : {
 									enabled : false
 								},
 								series : [ {
-									name : 'John',
+									name : '平均分',
 									data : [ 5, 4, 3, -2, -3 ]
 								} ]
 							};
@@ -171,7 +171,7 @@ angular
 							            text: ''                    
 							        },                                                                 
 							        xAxis: {                                                           
-							            categories: ['培養下屬', '戰略執行', '前瞻預測', '規劃安排', '激勵他人'],
+							            categories: ['培养下属', '战略执行', '前瞻预测', '规划安排', '激励他人'],
 							            title: {                                                       
 							                text: null                                                 
 							            }                                                              
@@ -201,19 +201,19 @@ angular
 							            enabled: false                                                 
 							        },                                                                 
 							        series: [{                                                         
-							            name: '上級',                                             
+							            name: '上级',                                             
 							            data: [107, 31, 635, 203, 2]                                   
 							        }, {                                                               
 							            name: '同事',                                             
 							            data: [133, 156, 947, 408, 6]                                  
 							        }, {                                                               
-							            name: '下級',                                             
+							            name: '下级',                                             
 							            data: [973, 914, 4054, 732, 34]                                
 							        }]                                                                 
 							    };
 
 							var data = [ {
-								category : '戰略執行',
+								category : '战略执行',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -222,7 +222,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '戰略執行',
+								category : '战略执行',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -231,7 +231,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '戰略執行',
+								category : '战略执行',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -240,7 +240,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '戰略執行',
+								category : '战略执行',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -249,7 +249,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '前瞻預測',
+								category : '前瞻预测',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -258,7 +258,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '前瞻預測',
+								category : '前瞻预测',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -267,7 +267,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '前瞻預測',
+								category : '前瞻预测',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -276,7 +276,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '目標意識',
+								category : '目标意识',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -285,7 +285,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '目標意識',
+								category : '目标意识',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -294,7 +294,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '目標意識',
+								category : '目标意识',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -303,7 +303,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '團隊合作',
+								category : '团队合作',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -312,7 +312,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '團隊合作',
+								category : '团队合作',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
@@ -321,7 +321,7 @@ angular
 								others : 30,
 								diff : -10
 							}, {
-								category : '團隊合作',
+								category : '团队合作',
 								question : 'Tiancum',
 								self : 43,
 								boss : 20,
