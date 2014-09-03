@@ -45,6 +45,14 @@ body {
 	border-color: #7DCCC9;
 }
 
-table td{
-	text-align:center;
+table tr{
+	text-align: center;
+}
+
+table tr.ng-table-group{
+	text-align: left;
+}
+
+.percent20{
+	width: 20%;
 }

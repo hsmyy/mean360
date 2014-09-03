@@ -9,6 +9,8 @@ angular.module('mean.mean360').controller(
         name: 'nomination'
       };
 
+      $scope.rating = 3;
+      
       $http.get('related_users').success(function(data) {
         $scope.nomi = [
           {

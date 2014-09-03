@@ -20,14 +20,43 @@
 		<div>
 			<h3>2014 评估:</h3>
 		</div>
-		<hr class="sectionBreak"/>
+		<hr class="sectionBreak" />
 		<div ng-show="phase == 0">
 
 			<div>
 				待评价者：<span class="badge">10</span>人 评价问题：<span class="badge">10</span>道
 				预计时间：<span class="badge">15</span>分钟
 			</div>
-			<div class="guide"></div>
+			<div class="guide">
+				<div class="row">
+					<div class="col-md-3 card">
+						<div class="pull-left photo">
+							<img src="mean360/assets/img/account.jpg" />
+						</div>
+						<div class="pull-left">
+							<div>姓名：自己</div>
+						</div>
+						<div class="pull-right">
+							<button ng-click="delCandidate($index,$parent.$index)"
+								class="close">&times;</button>
+						</div>
+					</div>
+					<div class="col-md-3 card">
+						<div class="pull-left photo">
+							<img src="mean360/assets/img/account.jpg" />
+						</div>
+						<div class="pull-left">
+							<div>姓名：关羽</div>
+							<div>职位：大将军</div>
+							<div>部门：荆州</div>
+						</div>
+						<div class="pull-right">
+							<button ng-click="delCandidate($index,$parent.$index)"
+								class="close">&times;</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<button ng-click="startEval()" class="btn btn-primary">请点击开始进入评估</button>
@@ -36,34 +65,70 @@
 		</div>
 
 		<div ng-show="phase == 1">
-			<div>问题 {{current + 1}} / {{questions.length}}：</div>
-			<div>{{questions[current].category}} :
-				{{questions[current].question}}</div>
-			<hr class="sectionBreak" />
-			<div>
-				<form class="form-horizontal">
-					<fieldset>
-						<div class="control-group">
-							<div class="controls">
-								<!-- Multiple Checkboxes -->
-								<label class="checkbox"><button ng-click="next(0)"
-										class="btn btn-primary">非常好</button> </label> <label class="checkbox">
-									<button ng-click="next(1)" class="btn btn-success">很好</button>
-								</label> <label class="checkbox">
-									<button ng-click="next(2)" class="btn btn-info">一般</button>
-								</label> <label class="checkbox">
-									<button ng-click="next(3)" class="btn btn-warning">很差</button>
-								</label> <label class="checkbox">
-									<button ng-click="next(4)" class="btn btn-danger">非常差</button>
-								</label>
-							</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div>问题 {{current + 1}} / {{questions.length}}：</div>
+					<div>{{questions[current].category}} :
+						{{questions[current].question}}</div>
+					<hr class="sectionBreak" />
+					<div>
+						<form class="form-horizontal">
+							<fieldset>
+								<div class="control-group">
+									<div class="controls">
+										<!-- Multiple Checkboxes -->
+										<label class="checkbox"><button ng-click="next(0)"
+												class="btn btn-primary">非常好</button> </label> <label
+											class="checkbox">
+											<button ng-click="next(1)" class="btn btn-success">很好</button>
+										</label> <label class="checkbox">
+											<button ng-click="next(2)" class="btn btn-info">一般</button>
+										</label> <label class="checkbox">
+											<button ng-click="next(3)" class="btn btn-warning">很差</button>
+										</label> <label class="checkbox">
+											<button ng-click="next(4)" class="btn btn-danger">非常差</button>
+										</label>
+									</div>
 
-						</div>
+								</div>
 
-					</fieldset>
-				</form>
+							</fieldset>
+						</form>
 
+					</div>
+				</div>
+				<div class="col-md-6">
+					<dl class="dl-horizontal">
+						<dt>被评价者:</dt>
+						<dd>关羽</dd>
+						<dt>职位:</dt>
+						<dd>大将军</dd>
+						<dt>部门:</dt>
+						<dd>荆州</dd>
+					</dl>
+					<h4>1. 行动计划总结</h4>
+					<table class="table table-strip">
+						<tbody>
+							<tr>
+								<td>计划名称</td>
+								<td>完成度</td>
+								<td>完成满意度</td>
+							</tr>
+							<tr>
+								<td>123</td>
+								<td><rating ng-model="rating" max="5"></rating></td>
+								<td><rating ng-model="rating" max="5"></rating></td>
+							</tr>
+							<tr>
+								<td>123</td>
+								<td><rating ng-model="rating" max="5"></rating></td>
+								<td><rating ng-model="rating" max="5"></rating></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
+
 		</div>
 		<div ng-show="phase == 2">
 			<div>您已經完成了評估！</div>

@@ -8,6 +8,7 @@ angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$h
     };
     
     $scope.phase = 0;
+    $scope.rating = 5;
 
 
 //    $scope.questions = [                    {
