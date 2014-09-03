@@ -1,6 +1,8 @@
+'use strict';
+
 var Question = require('../models/question.js').Question;
-var mongoose = require('mongoose');
-var User = mongoose.model('User');
+//var mongoose = require('mongoose');
+//var User = mongoose.model('User');
 
 exports.save = function(question, callback) {
   var newQuestion = new Question({
@@ -16,11 +18,11 @@ exports.save = function(question, callback) {
 exports.getQuestionById = function(id, callback) {
   Question.findOne({_id: id}, function(err, question) {
     callback(err, question);
-  })
+  });
 };
 
 exports.getAllQuestion = function(callback) {
   Question.find({},function(err, questions) {
     callback(err, questions);
-  })
+  });
 };

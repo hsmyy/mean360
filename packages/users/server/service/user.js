@@ -1,3 +1,5 @@
+'use strict';
+
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var async = require('async');
@@ -21,7 +23,7 @@ exports.getRelatedUsers = function(id, callback) {
       });
     },
     function(siblings, user, cb) {
-      for(var i = 0; i < siblings.length; ++i) {
+      for(var i = 0; i < siblings.length; i+=1) {
         if(siblings[i]._id.toString() === id.toString()) {
           siblings.splice(i, 1);
         }
@@ -57,8 +59,8 @@ exports.chooseNominators = function(id, nominatorIds, callback) {
 exports.getEvaluatees = function(id, callback){
   async.waterfall([
     function(cb){
-      User.find({nominators:{"$in":[id]}}).exec(function(err, users){
-        cb(err, users)
+      User.find({nominators:{'$in':[id]}}).exec(function(err, users){
+        cb(err, users);
       });
     }
   ], callback);

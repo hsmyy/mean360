@@ -35,5 +35,5 @@ module.exports = function(Nomination, app, auth, database) {
       res.json(questions);
     }
     QuestionService.getAllQuestion(afterGetAllQuestions);
-  })
+  });
 };

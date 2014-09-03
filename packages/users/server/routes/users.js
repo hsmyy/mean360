@@ -67,7 +67,7 @@ module.exports = function(MeanUser, app, auth, database, passport) {
         return res.redirect('/');
       }
       res.json(users);
-    })
-  })
+    });
+  });
 
 };

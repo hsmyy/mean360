@@ -103,14 +103,14 @@ angular.module('mean.mean360').controller(
         $scope.finish = function() {
           $scope.isFinish = !$scope.isFinish;
           var nominators = [];
-          for(var i = 0; i < $scope.nomi.length; ++i) {
-            for(var j = 0; j < $scope.nomi[i].choose.length; ++j) {
+          for(var i = 0; i < $scope.nomi.length; i+=1) {
+            for(var j = 0; j < $scope.nomi[i].choose.length; j+=1) {
               nominators.push($scope.nomi[i].choose[j]._id);
             }
           }
           $http.post('choose_nominators', nominators).success(function(data) {
 
-          })
+          });
         };
 
         $scope.delCandidate = function(idx, type) {
