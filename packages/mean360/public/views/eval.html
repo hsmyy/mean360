@@ -22,39 +22,27 @@
 		</div>
 		<hr class="sectionBreak" />
 		<div ng-show="phase == 0">
-
 			<div>
-				待评价者：<span class="badge">10</span>人 评价问题：<span class="badge">10</span>道
-				预计时间：<span class="badge">15</span>分钟
+				待评价者：<span class="badge">{{candidates.length}}</span>人<br>
+                评价问题：<span class="badge">{{questions.length}}</span>道<br>
+				预计时间：<span class="badge">{{candidates.length * questions.length * 2}}</span>分钟<br>
 			</div>
 			<div class="guide">
 				<div class="row">
-					<div class="col-md-3 card">
-						<div class="pull-left photo">
-							<img src="mean360/assets/img/account.jpg" />
-						</div>
-						<div class="pull-left">
-							<div>姓名：自己</div>
-						</div>
-						<div class="pull-right">
-							<button ng-click="delCandidate($index,$parent.$index)"
-								class="close">&times;</button>
-						</div>
-					</div>
-					<div class="col-md-3 card">
-						<div class="pull-left photo">
-							<img src="mean360/assets/img/account.jpg" />
-						</div>
-						<div class="pull-left">
-							<div>姓名：关羽</div>
-							<div>职位：大将军</div>
-							<div>部门：荆州</div>
-						</div>
-						<div class="pull-right">
-							<button ng-click="delCandidate($index,$parent.$index)"
-								class="close">&times;</button>
-						</div>
-					</div>
+                    <div class="col-md-3 card" data-ng-repeat="candidate in candidates">
+                        <div class="pull-left photo">
+                            <img src="{{candidate.img}}" />
+                        </div>
+                        <div class="pull-left">
+                            <div>姓名：{{candidate.name}}</div>
+                            <div data-ng-if="candidate.position.length > 0">职位：{{candidate.position}}</div>
+                            <div data-ng-if="candidate.department.length > 0">部门：{{candidate.department}}</div>
+                        </div>
+                        <div class="pull-right">
+                            <button ng-click="delCandidate($index)"
+                                    class="close">&times;</button>
+                        </div>
+                    </div>
 				</div>
 			</div>
 			<div class="row">
