@@ -27,7 +27,7 @@ module.exports = {
     */
   },
   app: {
-    name: 'MEAN - A Modern Stack - Production'
+    name: '360 评估反馈系统'
   },
   facebook: {
     clientID: 'APP_ID',
