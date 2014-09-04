@@ -3,8 +3,9 @@ var Schema = mongoose.Schema;
 
 var QuestionSchema = new Schema({
   category:{
-    type:String,
-    required:true
+    type:Schema.Types.ObjectId,
+    required:true,
+    ref:'Category'
   },
   content:{
     type:String,

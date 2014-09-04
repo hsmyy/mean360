@@ -28,7 +28,7 @@ angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$h
 //                        	'category' : '前瞻性',
 //                        	'question' : '分享行業前沿信息'
 //                        }];
-    $http.get('questions').success(function(data){
+    $http.get('query/question/all').success(function(data){
       $scope.questions = data;
     });
     $scope.current = 0;

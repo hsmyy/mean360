@@ -41,7 +41,7 @@ Mean360.register(function(app, auth, database, users) {
 	Mean360.menus.add({
 		title : '管理',
 		link : '管理',
-		roles : [ 'authenticated' ],
+		roles : [ 'admin' ],
 		menu : 'main'
 	});
 
