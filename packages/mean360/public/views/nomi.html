@@ -57,8 +57,9 @@
 			</div>
 			<div class="row">
 				<div ng-repeat="choose in item.choose">
-					<div class="col-md-3 card">
-						<div class="pull-left photo">
+					<div class="col-md-4 col-sm-6">
+						<div class="card">
+							<div class="pull-left photo">
 							<img src="mean360/assets/img/account.jpg" />
 						</div>
 						<div class="pull-left">
@@ -69,11 +70,14 @@
 						<div class="pull-right">
 							<button ng-click="delCandidate($index,$parent.$index)" class="close">&times;</button>
 						</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-3 card addPerson" 
+				<div class="col-md-4 col-sm-6" 
 					ng-show="canAdd($index)" ng-click="show($index)">
-					<div class="glyphicon glyphicon-plus"></div>
+					<div class=" card addPerson">
+						<div class="glyphicon glyphicon-plus"></div>
+					</div>
 				</div>
 			</div>
 			<div class="row" ng-show="canShow($index)">

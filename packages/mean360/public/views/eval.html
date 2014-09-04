@@ -22,6 +22,7 @@
 		</div>
 		<hr class="sectionBreak" />
 		<div ng-show="phase == 0">
+
 			<div>
 				待评价者：<span class="badge">{{candidates.length}}</span>人<br>
                 评价问题：<span class="badge">{{questions.length}}</span>道<br>
@@ -29,8 +30,9 @@
 			</div>
 			<div class="guide">
 				<div class="row">
-                    <div class="col-md-3 card" data-ng-repeat="candidate in candidates">
-                        <div class="pull-left photo">
+                    <div class="col-md-4 col-sm-6" data-ng-repeat="candidate in candidates">
+                        <div class="card">
+                        	<div class="pull-left photo">
                             <img src="{{candidate.img}}" />
                         </div>
                         <div class="pull-left">
@@ -42,6 +44,8 @@
                             <button ng-click="delCandidate($index)"
                                     class="close">&times;</button>
                         </div>
+                        </div>
+                        
                     </div>
 				</div>
 			</div>
