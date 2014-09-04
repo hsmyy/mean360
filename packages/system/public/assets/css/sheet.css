@@ -71,3 +71,6 @@ table tr.ng-table-group{
 	/*background-size: 30px Auto;*/
 }
 
+.form-row{
+	padding-top: 9px;
+}

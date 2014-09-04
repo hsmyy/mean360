@@ -4,6 +4,7 @@ angular.module('mean.mean360').controller(
 		'ManagerController',
 		[ '$scope', '$filter', 'Global', 'Manager','ngTableParams',
 				function($scope, $filter, Global, Manager, NgTableParams) {
+			$scope.func = 2;
 			
 			$scope.timeline = [{
 				'name' : '选择评价者',
