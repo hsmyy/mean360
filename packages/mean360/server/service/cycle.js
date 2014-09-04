@@ -1,3 +1,6 @@
+
+'use strict';
+
 var Cycle = require('../models/cycle.js').Cycle;
 
 exports.getCycleById = function(id, callback){

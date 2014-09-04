@@ -24,7 +24,7 @@ module.exports = function(Nomination, app, auth, database) {
         return res.redirect('/');
       }
       res.send('success');
-    })
+    });
   });
 
   app.post('/save/action_plan', function(req, res) {
@@ -34,7 +34,7 @@ module.exports = function(Nomination, app, auth, database) {
         return res.redirect('/');
       }
       res.json(actionPlan);
-    })
+    });
   });
 
   app.get('/query/action_plan/user&cycle', function(req, res){
@@ -44,7 +44,7 @@ module.exports = function(Nomination, app, auth, database) {
         return res.redirect('/');
       }
       res.json(actionPlans);
-    })
+    });
   });
 
   app.get('/query/categories/all', function(req, res){
@@ -54,7 +54,7 @@ module.exports = function(Nomination, app, auth, database) {
         return res.redirect('/');
       }
       res.json(categories);
-    })
+    });
   });
 
   app.get('/query/cycle/id', function(req, res){
@@ -64,7 +64,7 @@ module.exports = function(Nomination, app, auth, database) {
         return res.redirect('/');
       }
       res.json(cycle);
-    })
+    });
   });
 
   app.get('/query/cycle/all', function(req, res){
@@ -74,7 +74,7 @@ module.exports = function(Nomination, app, auth, database) {
         return res.redirect('/');
       }
       res.json(cycles);
-    })
+    });
   });
 
   app.post('/update/cycle', function(req, res){
@@ -84,7 +84,7 @@ module.exports = function(Nomination, app, auth, database) {
         return res.redirect('/');
       }
       res.json(cycle);
-    })
+    });
   });
 
 

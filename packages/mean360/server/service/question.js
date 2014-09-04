@@ -1,3 +1,5 @@
+'use strict';
+
 var Question = require('../models/question.js').Question;
 //var mongoose = require('mongoose');
 //var User = mongoose.model('User');

@@ -1,3 +1,5 @@
+'use strict';
+
 var ActionPlan = require('../models/actionPlan.js').ActionPlan;
 
 exports.save = function(actionPlan, callback){

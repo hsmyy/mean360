@@ -1,3 +1,5 @@
+'use strict';
+
 var Category = require('../models/category.js').Category;
 
 exports.getAllCategory = function(callback){
