@@ -4,10 +4,10 @@
 	border-left-style: solid;
 	border-left-color: white;
 	border-left-color: rgba(0, 0, 0, 0.21);
-	box-shadow: 0 -3px 5px 0 rgba(50, 50, 50, 0.75);
+	box-shadow: 0 5px 5px 0 rgba(50, 50, 50, 0.75);
 	background-color: white;
 	position: relative;
-	padding: 30px 60px 40px 61px;
+	padding: 20px 35px 40px 35px;
 	min-height: 600px;
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 .sectionBreak{
-	border-color: #7DCCC9;
+	border-color: #888888;
 }
 
 table tr{

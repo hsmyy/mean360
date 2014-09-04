@@ -30,101 +30,79 @@
 			</div>
 			<div class="guide">
 				<div class="row">
-                    <div class="col-md-4 col-sm-6" data-ng-repeat="candidate in candidates">
+                    <div class="col-md-6 col-sm-6" data-ng-repeat="candidate in candidates" ng-click="startEval(candidate)" style="cursor:pointer;">
                         <div class="card">
                         	<div class="pull-left photo">
-                            <img src="{{candidate.img}}" />
+                                <img src="{{candidate.img}}" />
+                            </div>
+                            <div class="pull-left">
+                                <div>姓名：{{candidate.name}}</div>
+                                <div data-ng-if="candidate.position.length > 0">职位：{{candidate.position}}</div>
+                                <div data-ng-if="candidate.department.length > 0">部门：{{candidate.department}}</div>
+                            </div>
+                            <div class="pull-right">
+                                <button ng-click="delCandidate($index)"
+                                        class="close">&times;</button>
+                            </div>
+                            <div class="badge evaluation-status" ng-if="candidate.status=='NEW'">未评估</div>
+                            <div class="badge evaluation-status" ng-if="candidate.status=='PROGRESS'">进行中(3/4)</div>
+                            <div class="badge evaluation-status" ng-if="candidate.status=='NEW'">已完成</div>
                         </div>
-                        <div class="pull-left">
-                            <div>姓名：{{candidate.name}}</div>
-                            <div data-ng-if="candidate.position.length > 0">职位：{{candidate.position}}</div>
-                            <div data-ng-if="candidate.department.length > 0">部门：{{candidate.department}}</div>
-                        </div>
-                        <div class="pull-right">
-                            <button ng-click="delCandidate($index)"
-                                    class="close">&times;</button>
-                        </div>
-                        </div>
-                        
                     </div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<button ng-click="startEval()" class="btn btn-primary">请点击开始进入评估</button>
 				</div>
 			</div>
 		</div>
 
 		<div ng-show="phase == 1">
-			<div class="row">
-				<div class="col-md-6">
-					<div>问题 {{currentQuestion + 1}} / {{questions.length}}：</div>
-					<div>{{questions[currentQuestion].category}} :
-						{{questions[currentQuestion].question}}</div>
-					<hr class="sectionBreak" />
-					<div>
-						<form class="form-horizontal">
-							<fieldset>
-								<div class="control-group">
-									<div class="controls">
-										<!-- Multiple Checkboxes -->
-										<label class="checkbox"><button ng-click="next(0)"
-												class="btn btn-primary">非常好</button> </label> <label
-											class="checkbox">
-											<button ng-click="next(1)" class="btn btn-success">很好</button>
-										</label> <label class="checkbox">
-											<button ng-click="next(2)" class="btn btn-info">一般</button>
-										</label> <label class="checkbox">
-											<button ng-click="next(3)" class="btn btn-warning">很差</button>
-										</label> <label class="checkbox">
-											<button ng-click="next(4)" class="btn btn-danger">非常差</button>
-										</label>
-									</div>
-
-								</div>
-
-							</fieldset>
-						</form>
-
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="clearfix">
-						<dl class="dl-horizontal">
-							<dt>被评价者:</dt>
-							<dd>{{candidates[currentPerson].name}}</dd>
-							<dt>职位:</dt>
-							<dd>{{candidates[currentPerson].position}}</dd>
-							<dt>部门:</dt>
-							<dd>{{candidates[currentPerson].department}}</dd>
-						</dl>
-					</div>
-					<h4>1. 行动计划总结</h4>
-					<table class="table table-strip">
-						<thead>
-							<tr>
-								<td>计划名称</td>
-								<td>完成度</td>
-								<td>完成满意度</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="act in candidates[currentPerson].actionplan">
-								<td>{{act.name}}</td>
-								<td><rating ng-model="act.progress" max="5"></rating></td>
-								<td><rating ng-model="act.satisfy" max="5"></rating></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-
-		</div>
+            <div class="row">
+                <div class="col-md-4">
+                    <b>被评价者: </b>{{evaluatingCandidate.name}}
+                </div>
+                <div class="col-md-4">
+                    <b>职位: </b>{{evaluatingCandidate.position}}
+                </div>
+                <div class="col-md-4">
+                    <b>部门: </b>{{evaluatingCandidate.department}}
+                </div>
+            </div>
+            <hr class="sectionBreak">
+            <div>
+                <h4 class="section-title">行动计划总结</h4>
+                <table class="table table-strip">
+                    <thead>
+                    <tr>
+                        <td>计划名称</td>
+                        <td>完成度</td>
+                        <td>完成满意度</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="act in candidates[currentPerson].actionplan">
+                        <td>{{act.name}}</td>
+                        <td><rating ng-model="act.progress" max="5"></rating></td>
+                        <td><rating ng-model="act.satisfy" max="5"></rating></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr class="sectionBreak" />
+            <div>
+                <h4 class="section-title">评估问题</h4>
+                <div ng-repeat="question in questions" class="row evaluation-question">
+                    <div class="col-md-1 question-index">{{$index+1}}</div>
+                    <div class="col-md-8 question-content"><b>[{{question.category}}]</b> {{question.question}}</div>
+                    <div class="col-md-3 question-score"><rating ng-model="evaluatingCandidate.scores[$index]" max="5"></rating></div>
+                </div>
+            </div>
+            <hr class="sectionBreak" />
+            <div style="text-align: center;" class="btn-toolbar">
+                <button type="button" class="btn btn-primary" ng-click="finishEvaluation(evaluatingCandidate)">完成</button>
+                <button type="button" class="btn btn-default">临时保存</button>
+            </div>
+        </div>
 		<div ng-show="phase == 2">
 			<div>您已经完成了评估！</div>
 		</div>
-
-		<hr class="sectionBreak" />
 	</div>
+    <div growl></div>
 </section>

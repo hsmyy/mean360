@@ -6,3 +6,23 @@
 	min-height: 250px;
 	padding-top: 15px;
 }
+
+.evaluation-status {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    opacity: 0.5;
+}
+
+.section-title {
+    border-bottom: 1px dashed rgb(216,216,216);
+    padding-bottom: 5px;
+}
+
+.evaluation-question {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: 1px solid #dcdcdc;
+}
