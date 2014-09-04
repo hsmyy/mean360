@@ -3,11 +3,12 @@
 angular.module('mean.mean360').controller('FeedbackController', [
     '$scope',
     '$filter',
+    '$document',
     'Global',
     'Feedback',
     'growl',
     'ngTableParams',
-    function ($scope, $filter, Global, Feedback, growl, NgTableParams) {
+    function ($scope, $filter, $document, Global, Feedback, growl, NgTableParams) {
         $scope.global = Global;
         $scope.package = {
             name: 'feedback'
@@ -438,5 +439,10 @@ angular.module('mean.mean360').controller('FeedbackController', [
                 'This adds a success message', {
                     'ttl': 3000
                 });
+        };
+        
+        $scope.toTop = function(){
+        	console.log($document);
+        	$document.scrollTop(0,1000);
         };
     } ]);

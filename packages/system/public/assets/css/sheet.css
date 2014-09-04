@@ -56,3 +56,18 @@ table tr.ng-table-group{
 .percent20{
 	width: 20%;
 }
+
+.toTop{
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 5px;
+	width: 65px;
+	height: 25px;
+	cursor: pointer;
+	/*background-image: url(../system/assets/img/scrolltop.png);*/
+	/*background-size: 30px Auto;*/
+}
+
