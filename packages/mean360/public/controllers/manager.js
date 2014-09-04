@@ -4,6 +4,27 @@ angular.module('mean.mean360').controller(
 		'ManagerController',
 		[ '$scope', '$filter', 'Global', 'Manager','ngTableParams',
 				function($scope, $filter, Global, Manager, NgTableParams) {
+			
+			$scope.timeline = [{
+				'name' : '选择评价者',
+				'time' : 75,
+				'progress' : 70,
+				'startTime' : '',
+				'endTime' : ''
+			},{
+				'name' : '评价',
+				'time' : 85,
+				'progress' : 80,
+				'startTime' : '',
+				'endTime' : ''
+			},{
+				'name' : '反馈',
+				'time' : 95,
+				'progress' : 90,
+				'startTime' : '',
+				'endTime' : ''
+			}];
+			
 			var data = [ {
 				category : '戰略執行',
 				question : 'Tiancum',

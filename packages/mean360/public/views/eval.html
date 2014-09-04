@@ -59,9 +59,9 @@
 		<div ng-show="phase == 1">
 			<div class="row">
 				<div class="col-md-6">
-					<div>问题 {{current + 1}} / {{questions.length}}：</div>
-					<div>{{questions[current].category}} :
-						{{questions[current].question}}</div>
+					<div>问题 {{currentQuestion + 1}} / {{questions.length}}：</div>
+					<div>{{questions[currentQuestion].category}} :
+						{{questions[currentQuestion].question}}</div>
 					<hr class="sectionBreak" />
 					<div>
 						<form class="form-horizontal">
@@ -90,31 +90,30 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<dl class="dl-horizontal">
-						<dt>被评价者:</dt>
-						<dd>关羽</dd>
-						<dt>职位:</dt>
-						<dd>大将军</dd>
-						<dt>部门:</dt>
-						<dd>荆州</dd>
-					</dl>
+					<div class="clearfix">
+						<dl class="dl-horizontal">
+							<dt>被评价者:</dt>
+							<dd>{{candidates[currentPerson].name}}</dd>
+							<dt>职位:</dt>
+							<dd>{{candidates[currentPerson].position}}</dd>
+							<dt>部门:</dt>
+							<dd>{{candidates[currentPerson].department}}</dd>
+						</dl>
+					</div>
 					<h4>1. 行动计划总结</h4>
 					<table class="table table-strip">
-						<tbody>
+						<thead>
 							<tr>
 								<td>计划名称</td>
 								<td>完成度</td>
 								<td>完成满意度</td>
 							</tr>
-							<tr>
-								<td>123</td>
-								<td><rating ng-model="rating" max="5"></rating></td>
-								<td><rating ng-model="rating" max="5"></rating></td>
-							</tr>
-							<tr>
-								<td>123</td>
-								<td><rating ng-model="rating" max="5"></rating></td>
-								<td><rating ng-model="rating" max="5"></rating></td>
+						</thead>
+						<tbody>
+							<tr ng-repeat="act in candidates[currentPerson].actionplan">
+								<td>{{act.name}}</td>
+								<td><rating ng-model="act.progress" max="5"></rating></td>
+								<td><rating ng-model="act.satisfy" max="5"></rating></td>
 							</tr>
 						</tbody>
 					</table>
@@ -123,7 +122,7 @@
 
 		</div>
 		<div ng-show="phase == 2">
-			<div>您已經完成了評估！</div>
+			<div>您已经完成了评估！</div>
 		</div>
 
 		<hr class="sectionBreak" />

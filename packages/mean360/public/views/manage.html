@@ -22,269 +22,162 @@
 	<div class="col-md-10 col-md-offset-2">
 		<h3>360 管理</h3>
 		<hr class="sectionBreak"/>
-		<h4>進度管理</h4>
+		<h4>进度管理</h4>
 		<div class="row">
-			<tabset> <tab heading="選擇評價者">
-			<div>當前花費時間：75%</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped" role="progressbar"
-					aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-					style="width: 75%">
-					<span class="sr-only">45% Complete</span>
-				</div>
-			</div>
-			<div>當前完成比例：70%</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-warning progress-bar-striped"
-					role="progressbar" aria-valuenow="70" aria-valuemin="0"
-					aria-valuemax="100" style="width: 70%">
-					<span class="sr-only">45% Complete</span>
-				</div>
-			</div>
-			<hr class="sectionBreak"/>
-			<div class="command">
-				<button class="btn btn-default">開始</button>
-				<button class="btn btn-default">提醒未完成者</button>
-				<button class="btn btn-primary">結束</button>
-			</div>
-			</tab> <tab heading="評價">
-			<div>當前花費時間：75%</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped" role="progressbar"
-					aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-					style="width: 75%">
-					<span class="sr-only">45% Complete</span>
-				</div>
-			</div>
-			<div>當前完成比例：70%</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-warning progress-bar-striped"
-					role="progressbar" aria-valuenow="70" aria-valuemin="0"
-					aria-valuemax="100" style="width: 70%">
-					<span class="sr-only">45% Complete</span>
-				</div>
-			</div>
-			<hr class="sectionBreak"/>
-			<div class="command">
-				<button class="btn btn-default">開始</button>
-				<button class="btn btn-default">提醒未完成者</button>
-				<button class="btn btn-primary">結束</button>
-			</div>
-			</tab> <tab heading="反饋">
-			<div>當前花費時間：75%</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped" role="progressbar"
-					aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-					style="width: 75%">
-					<span class="sr-only">45% Complete</span>
-				</div>
-			</div>
-			<div>當前完成比例：70%</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-warning progress-bar-striped"
-					role="progressbar" aria-valuenow="70" aria-valuemin="0"
-					aria-valuemax="100" style="width: 70%">
-					<span class="sr-only">45% Complete</span>
-				</div>
-			</div>
-			<hr class="sectionBreak"/>
-			<div class="command">
-				<button class="btn btn-default">開始</button>
-				<button class="btn btn-default">提醒未完成者</button>
-				<button class="btn btn-primary">結束</button>
-			</div>
-			</tab> </tabset>
+			<tabset> 
+				<tab ng-repeat="time in timeline" heading="{{time.name}}">
+					<div>当前话费时间：{{time.time}}%</div>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped" role="progressbar"
+							aria-valuenow="time.time" aria-valuemin="0" aria-valuemax="100"
+							style="width: {{time.time}}%">
+							<span class="sr-only"></span>
+						</div>
+					</div>
+					<div>当前完成比例：{{time.progress}}%</div>
+					<div class="progress">
+						<div class="progress-bar progress-bar-warning progress-bar-striped"
+							role="progressbar" aria-valuenow="70" aria-valuemin="0"
+							aria-valuemax="100" style="width: {{time.progress}}%">
+							<span class="sr-only"></span>
+						</div>
+					</div>
+					<hr class="sectionBreak"/>
+					<div class="command">
+						<button class="btn btn-default">开始</button>
+						<button class="btn btn-default">提醒未完成者</button>
+						<button class="btn btn-primary">结束</button>
+					</div>
+				</tab>
+			</tabset>
 		</div>
 		<hr  class="sectionBreak"/>
 		<h4>配置管理</h4>
 		<div class="row">
 			<div class="alert alert-danger" role="alert">
-				注意：以上項目在360評價開始後無法更改，請認真填寫！</div>
+				注意：以上項目在360评价开始后無法更改，请认真填写！</div>
 			<div class="alert alert-info" role="alert">
 				注意：由于360项目已经开始，以下项目无法修改
 			</div>
-			<tabset> <tab heading="時間">
-			<div class="row">
-				<div class="col-md-12">
-					<form class="form-horizontal" role="form">
-				<div class="form-group">
-					<label class="col-md-2">选择评价者</label>
-					<div class="col-md-4">
-						<div class="input-group">
-							<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-							</span>
+			<tabset> 
+				<tab heading="時間">
+					<div class="row">
+						<div class="col-md-12">
+							<form class="form-horizontal" role="form">
+								<div class="form-group" ng-repeat="group in timeline">
+									<label class="col-md-2">{{group.name}}</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" class="form-control"
+												datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+												min-date="minDate" max-date="'2015-06-22'"
+												datepicker-options="dateOptions"
+												date-disabled="disabled(date, mode)" ng-required="true"
+												close-text="Close" /> <span class="input-group-btn">
+												<button type="button" class="btn btn-default"
+													ng-click="open($event)">
+													<i class="glyphicon glyphicon-calendar"></i>
+												</button>
+												</span>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" class="form-control"
+												datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+												min-date="minDate" max-date="'2015-06-22'"
+												datepicker-options="dateOptions"
+												date-disabled="disabled(date, mode)" ng-required="true"
+												close-text="Close" /> <span class="input-group-btn">
+												<button type="button" class="btn btn-default"
+													ng-click="open($event)">
+													<i class="glyphicon glyphicon-calendar"></i>
+												</button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</tab> 
+					<tab heading="选择评价者配置">
+						<form class="form-horizontal">
+							<fieldset>
+								<div id="legend" class="">
+									<legend class="">评价者最大數量</legend>
+								</div>
+								<div class="control-group clearfix">
+									<!-- Text input-->
+									<label class="control-label col-md-2" for="input01">上司</label>
+									<div class="controls col-md-6">
+										<input type="text" placeholder="范围：1到2" class="input-xlarge form-control">
+									</div>
+								</div>
+								<div class="control-group clearfix">
+									<!-- Text input-->
+									<label class="control-label col-md-2" for="input01">同事</label>
+									<div class="controls col-md-6">
+										<input type="text" placeholder="范围：4到6" class="input-xlarge form-control">
+									</div>
+								</div>
+								<div class="control-group clearfix">
+									<!-- Text input-->
+									<label class="control-label col-md-2" for="input01">下属</label>
+									<div class="controls col-md-6">
+										<input type="text" placeholder="范围：4到6" class="input-xlarge form-control">
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</tab> 
+					<tab heading="评价">
+						<h4>评价模型</h4>			
+						<table ng-table="tableParams" class="table">
+						<tbody ng-repeat="group in $groups">
+							<tr class="ng-table-group">
+								<td colspan="{{$columns.length}}"><a href=""
+									ng-click="group.$hideRows = !group.$hideRows"> <span
+										class="glyphicon"
+										ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
+										<strong>{{ group.value }}</strong>
+								</a></td>
+							</tr>
+							<tr ng-hide="group.$hideRows" ng-repeat="user in group.data">
+								<td sortable="question" data-title="'題目'">{{user.question}}</td>
+								<td sortable="content" data-title="'行爲'">{{user.content}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr class="sectionBreak"/>
+					<div class="row">
+						<div class="col-md-6">
+							<h4>创建问题类型</h4>
+							<div class="well">
+								<input type="text" class="form-control" placeholder="Text input">
+								<button class="btn btn-default">创建</button>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h4>创建问题</h4>
+							<div class="well">
+								<select class="form-control">
+	  								<option>1</option>
+	  								<option>2</option>
+	  								<option>3</option>
+	  								<option>4</option>
+	  								<option>5</option>
+								</select>
+								<input type="text" class="form-control" placeholder="Text input">
+								<button class="btn btn-default">创建</button>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="input-group">
-							<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-md-2">评价</label>
-					<div class="col-md-4">
-						<div class="input-group">
-							<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-							</span>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="input-group">
-							<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-md-2">反馈</label>
-					<div class="col-md-4">
-						<div class="input-group">
-							<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-							</span>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="input-group">
-							<input type="text" class="form-control"
-							datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-							min-date="minDate" max-date="'2015-06-22'"
-							datepicker-options="dateOptions"
-							date-disabled="disabled(date, mode)" ng-required="true"
-							close-text="Close" /> <span class="input-group-btn">
-							<button type="button" class="btn btn-default"
-								ng-click="open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-							</span>
-						</div>
-					</div>
-				</div>
-			</form>
-				</div>
-			</div>
-			
-			</tab> <tab heading="選擇評價者">
-
-			<form class="form-horizontal">
-				<fieldset>
-					<div id="legend" class="">
-						<legend class="">评价者最大數量</legend>
-					</div>
-					<div class="control-group clearfix">
-						<!-- Text input-->
-						<label class="control-label col-md-2" for="input01">上司</label>
-						<div class="controls col-md-6">
-							<input type="text" placeholder="范围：1到2" class="input-xlarge form-control">
-						</div>
-					</div>
-					<div class="control-group clearfix">
-						<!-- Text input-->
-						<label class="control-label col-md-2" for="input01">同事</label>
-						<div class="controls col-md-6">
-							<input type="text" placeholder="范围：4到6" class="input-xlarge form-control">
-						</div>
-					</div>
-					<div class="control-group clearfix">
-						<!-- Text input-->
-						<label class="control-label col-md-2" for="input01">下属</label>
-						<div class="controls col-md-6">
-							<input type="text" placeholder="范围：4到6" class="input-xlarge form-control">
-						</div>
-					</div>
-				</fieldset>
-			</form>
-			</tab> <tab heading="评价">
-				<h4>评价模型</h4>			
-				<table ng-table="tableParams" class="table">
-				<tbody ng-repeat="group in $groups">
-					<tr class="ng-table-group">
-						<td colspan="{{$columns.length}}"><a href=""
-							ng-click="group.$hideRows = !group.$hideRows"> <span
-								class="glyphicon"
-								ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
-								<strong>{{ group.value }}</strong>
-						</a></td>
-					</tr>
-					<tr ng-hide="group.$hideRows" ng-repeat="user in group.data">
-						<td sortable="question" data-title="'題目'">{{user.question}}</td>
-						<td sortable="content" data-title="'行爲'">{{user.content}}</td>
-					</tr>
-				</tbody>
-			</table>
-				<hr class="sectionBreak"/>
-				<div class="row">
-					<div class="col-md-6">
-						<h4>创建问题类型</h4>
-						<div class="well">
-							<input type="text" class="form-control" placeholder="Text input">
-							<button class="btn btn-default">创建</button>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<h4>创建问题</h4>
-						<div class="well">
-							<select class="form-control">
-  								<option>1</option>
-  								<option>2</option>
-  								<option>3</option>
-  								<option>4</option>
-  								<option>5</option>
-							</select>
-							<input type="text" class="form-control" placeholder="Text input">
-							<button class="btn btn-default">创建</button>
-						</div>
-					</div>
-				</div>
-			</tab><tab heading="反饋">
-				
-			</tab></tabset>
+				</tab>
+				<tab heading="反饋">
+					
+				</tab>
+			</tabset>
 			<hr class="sectionBreak"/>
 			<div class="command">
 				<button class="btn btn-primary">保存</button>

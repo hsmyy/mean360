@@ -1,6 +1,6 @@
 
 <section class="container" ng-controller="FeedbackController">
-	
+
 	<div id="wrapper" class="row-fluid">
 		<div class="col-md-2">
 			<nav class="nav-docs" role="complementary">
@@ -21,258 +21,75 @@
 	<div class="col-md-10 col-md-offset-2">
 		<h3>2014 评估结果</h3>
 		<hr class="sectionBreak" />
-		<tabset> <tab heading="評估結果">
+		<tabset> <tab heading="评估结果">
 		<div class="row">
-			<h4>1. 綜合評價</h4>
-			<highchart id="chart1" config="chartConfig" class="span10"></highchart>
+			<h4>1. 综合评价</h4>
+			<highchart id="chart1" config="generalChartConfig" class="span10"></highchart>
 		</div>
 		<hr class="sectionBreak" />
 
 		<div class="row">
-			<h4>2. 優勢與待發展項目</h4>
-			<div class="blackfont">優勢</div>
+			<h4>2. 优势与待发展项目</h4>
+			<div class="blackfont">优势</div>
 			<table class="table">
 				<tbody>
-					<tr class="category-tableitem">
-						<td>TOP1</td>
-						<td>人際關係經營</td>
-						<td>3.6</td>
-					</tr>
-					<tr>
-						<td>40.</td>
-						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
-						<td>3.8</td>
-					</tr>
-					<tr>
-						<td>40.</td>
-						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
-						<td>3.8</td>
-					</tr>
-					<tr class="category-tableitem">
-						<td>TOP2</td>
-						<td>人際關係經營</td>
-						<td>3.6</td>
-					</tr>
-					<tr>
-						<td>40.</td>
-						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
-						<td>3.8</td>
+					<tr ng-repeat="item in strong" ng-class="item.style">
+						<td>{{item.id}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.score}}</td>
 					</tr>
 				</tbody>
 			</table>
-			<div class="blackfont">優勢</div>
+			<div class="blackfont">待发展</div>
 			<table class="table">
 				<tbody>
-					<tr class="category-tableitem">
-						<td>TOP1</td>
-						<td>人際關係經營</td>
-						<td>3.6</td>
-					</tr>
-					<tr>
-						<td>40.</td>
-						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
-						<td>3.8</td>
-					</tr>
-					<tr>
-						<td>40.</td>
-						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
-						<td>3.8</td>
-					</tr>
-					<tr class="category-tableitem">
-						<td>TOP2</td>
-						<td>人際關係經營</td>
-						<td>3.6</td>
-					</tr>
-					<tr>
-						<td>40.</td>
-						<td>善於建立和維持廣泛、友好的人際關係來幫助開展工作</td>
-						<td>3.8</td>
+					<tr ng-repeat="item in weak" ng-class="item.style">
+						<td>{{item.id}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.score}}</td>
 					</tr>
 				</tbody>
 			</table>
-		</div>
-
-		<div class="row">
-			<h4>3. 自我認知偏差</h4>
-			<highchart id="chart2" config="chartConfig2" class="span10"></highchart>
 		</div>
 		<hr class="sectionBreak"/>
+
+		<div class="row">
+			<h4>3. 自我认知偏差</h4>
+			<highchart id="chart2" config="selfDiffChartConfig" class="span10"></highchart>
+		</div>
+		<hr class="sectionBreak" />
 
 		<div class="row">
 			<h4>4. 他評分歧</h4>
-			<highchart id="chart3" config="chartConfig3" class="span10"></highchart>
+			<highchart id="chart3" config="otherDiffchartConfig" class="span10"></highchart>
 		</div>
-		<hr class="sectionBreak"/>
-		
+		<hr class="sectionBreak" />
 		<div class="row">
-			<h4>5. 不同人眼中表現突出的行爲</h4>
-			<div class="col-md-6">
-				<h4 class="blackfont">High</h4>
-				<table class="table">
-					<tbody>
+			<h4>5. 不同人眼中表现突出的行为</h4>
+			<div class="col-md-6" ng-repeat="highlight in highLight">
+				<h4 class="blackfont">{{highlight.name}}</h4>
+				<table class="table" ng-repeat="group in highlight.data">
+					<thead>
 						<tr class="category-tableitem">
-							<td colspan="3">上級</td>
-							<td class="percent20">所屬類別</td>
+							<td colspan="3">{{group.group}}</td>
+							<td class="percent20">所属类别</td>
 						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="table">
+					</thead>
 					<tbody>
-						<tr class="category-tableitem">
-							<td colspan="3">同事</td>
-							<td class="percent20">所屬類別</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="table">
-					<tbody>
-						<tr class="category-tableitem">
-							<td colspan="3">下屬</td>
-							<td class="percent20">所屬類別</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="col-md-6">
-				<h4 class="blackfont">Low</h4>
-				<table class="table">
-					<tbody>
-						<tr class="category-tableitem">
-							<td colspan="3">上級</td>
-							<td class="percent20">所屬類別</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="table">
-					<tbody>
-						<tr class="category-tableitem">
-							<td colspan="3">同事</td>
-							<td class="percent20">所屬類別</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="table">
-					<tbody>
-						<tr class="category-tableitem">
-							<td colspan="3">下屬</td>
-							<td class="percent20">所屬類別</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>引導下屬將自身工作與組織戰略緊密結合，以戰略爲導向開展工作</td>
-							<td>4.0</td>
-							<td>戰略執行</td>
+						<tr ng-repeat="question in group.question">
+							<td>{{question.id}}</td>
+							<td>{{question.content}}</td>
+							<td>{{question.score}}</td>
+							<td>{{question.category}}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		<hr class="sectionBreak"/>
+		<hr class="sectionBreak" />
 
 		<div class="row">
-			<h4>5. 發展建議</h4>
+			<h4>6. 发展建议</h4>
 			<table class="table">
 				<thead>
 					<tr>
@@ -323,7 +140,7 @@
 				</tbody>
 			</table>
 		</div>
-		<hr class="sectionBreak"/>
+		<hr class="sectionBreak" />
 
 		<div class="row">
 			<h4>7. 得分詳情</h4>
@@ -349,10 +166,8 @@
 				</tbody>
 			</table>
 		</div>
-		<div ng-click="toTop()" scrollshow="500" class="toTop">
-			回到顶部
-		</div>
-		</tab> <tab heading="行動計劃">
+		<div ng-click="toTop()" scrollshow="500" class="toTop">回到顶部</div>
+		</tab> <tab heading="行动计划">
 		<div ng-repeat="item in analysis">
 			<div class="row">
 				<h4>{{item.name}}</h4>
@@ -380,7 +195,7 @@
 				</div>
 			</div>
 		</div>
-		<hr class="sectionBreak"/>
+		<hr class="sectionBreak" />
 		<div class="command">
 			<button class="btn btn-default" ng-click="preview()">{{previewSet[previewIdx].command}}</button>
 			<button class="btn btn-primary" ng-click="save()">保存</button>
@@ -388,5 +203,5 @@
 		<h4></h4>
 		</tab> </tabset>
 	</div>
-<div growl></div>
+	<div growl></div>
 </section>
