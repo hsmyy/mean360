@@ -2,7 +2,7 @@
 
 angular.module('mean.mean360').config(
 		[ '$stateProvider', function($stateProvider) {
-			$stateProvider.state('選擇評價者', {
+			$stateProvider.state('选择评价者', {
 				url : '/nomination/',
 				templateUrl : 'mean360/views/nomi.html'
 			}).state('评估', {
