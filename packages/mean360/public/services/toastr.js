@@ -3,8 +3,8 @@
 angular.module('mean.mean360').factory('toastr', [
     function () {
         function show(type, position, message) {
-            toastr.options.positionClass = position;
-            toastr[type][message];
+            window.toastr.options.positionClass = position;
+            window.toastr[type](message);
         }
 
         function info(position, message) {
