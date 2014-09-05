@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$http', 'Global', 'Evaluation', 'growl',
-    function ($scope, $http, Global, Evaluation, growl) {
+angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$http', 'Global', 'Evaluation', 'toastr',
+    function ($scope, $http, Global, Evaluation, toastr) {
         $scope.global = Global;
         $scope.package = {
             name: 'evaluation'
@@ -107,10 +107,7 @@ angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$h
         };
 
         $scope.finishEvaluation = function (candidate) {
-            growl.addSuccessMessage('Evaluation of ' + candidate.name + ' finished.', {
-                'ttl': 3000
-            });
-
+            toastr.success('toast-top-right', 'Evaluation of ' + candidate.name + ' finished.');
             $scope.phase = 0;
         };
     }
