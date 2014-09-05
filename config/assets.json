@@ -2,7 +2,7 @@
   "core": {
     "css": {
       "bower_components/build/css/dist.min.css": [
-		"bower_components/toastr/toastr.min.css"
+		"bower_components/toastr/toastr.min.css",
 	    "bower_components/angular-growl-2/build/angular-growl.min.css",
       	"bower_components/ng-table/ng-table.min.css"
       ]

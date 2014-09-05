@@ -107,7 +107,7 @@ angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$h
         };
 
         $scope.finishEvaluation = function (candidate) {
-            toastr.success('toast-top-right', 'Evaluation of ' + candidate.name + ' finished.');
+            toastr.success('toast-top-right', candidate.name + '的评估完成');
             $scope.phase = 0;
         };
     }
