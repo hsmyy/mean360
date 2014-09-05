@@ -382,7 +382,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
         var data = [
             {
                 category: '战略执行',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -392,7 +392,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '战略执行',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -402,7 +402,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '战略执行',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -412,7 +412,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '战略执行',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -422,7 +422,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '前瞻预测',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -432,7 +432,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '前瞻预测',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -442,7 +442,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '前瞻预测',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -452,7 +452,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '目标意识',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -462,7 +462,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '目标意识',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -472,7 +472,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '目标意识',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -482,7 +482,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '团队合作',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -492,7 +492,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '团队合作',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,
@@ -502,7 +502,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             {
                 category: '团队合作',
-                question: 'Tiancum',
+                question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
                 self: 43,
                 boss: 20,
                 peer: 30,

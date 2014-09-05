@@ -68,18 +68,7 @@ Mean360.register(function(app, auth, database, users) {
 	  });
 	 */
 	Mean360.aggregateAsset('css', 'nomination.css');
-	Mean360.aggregateAsset('css', 'ng-table.css');
-	Mean360.aggregateAsset('js', 'ng-table.js');
-
 	Mean360.aggregateAsset('css', 'evaluation.css');
-
 	Mean360.aggregateAsset('css', 'feedback.css');
-	Mean360.aggregateAsset('js', 'highcharts.src.js');
-	Mean360.aggregateAsset('js', 'highcharts-ng.js');
-	
-	Mean360.aggregateAsset('css','angular-growl.min.css');
-	Mean360.aggregateAsset('js','angular-growl.js');
-
-	Mean360.aggregateAsset('js','angular-scroll.js');
 	return Mean360;
 });

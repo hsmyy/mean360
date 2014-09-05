@@ -98,10 +98,10 @@ angular.module('mean.mean360').controller(
           $scope.nomi[type].add = !$scope.nomi[type].add;
         };
 
-        $scope.isFinish = false;
+        $scope.phase = 1;
 
         $scope.finish = function() {
-          $scope.isFinish = !$scope.isFinish;
+          $scope.phase = 3;
           var nominators = [];
           for(var i = 0; i < $scope.nomi.length; i+=1) {
             for(var j = 0; j < $scope.nomi[i].choose.length; j+=1) {

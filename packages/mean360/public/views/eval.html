@@ -24,9 +24,11 @@
 		<div ng-show="phase == 0">
 
 			<div>
-				待评价者：<span class="badge">{{candidates.length}}</span>人<br>
-                评价问题：<span class="badge">{{questions.length}}</span>道<br>
-				预计时间：<span class="badge">{{candidates.length * questions.length * 2}}</span>分钟<br>
+				<ul class="list-inline">
+					<li>待评价者：<span class="badge">{{candidates.length}}</span>人<br></li>
+					<li>评价问题：<span class="badge">{{questions.length}}</span>道<br></li>
+					<li>预计时间：<span class="badge">{{candidates.length * questions.length * 2}}</span>分钟<br></li>
+				</ul>
 			</div>
 			<div class="guide">
 				<div class="row">
@@ -45,8 +47,8 @@
                                         class="close">&times;</button>
                             </div>
                             <div class="badge evaluation-status" ng-if="candidate.status=='NEW'">未评估</div>
-                            <div class="badge evaluation-status" ng-if="candidate.status=='PROGRESS'">进行中(3/4)</div>
-                            <div class="badge evaluation-status" ng-if="candidate.status=='NEW'">已完成</div>
+                            <div class="badge badge-info evaluation-status" ng-if="candidate.status=='PROGRESS'">进行中(3/4)</div>
+                            <div class="badge badge-success evaluation-status" ng-if="candidate.status=='NEW'">已完成</div>
                         </div>
                     </div>
 				</div>

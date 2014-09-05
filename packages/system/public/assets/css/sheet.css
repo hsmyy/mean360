@@ -17,11 +17,12 @@ body {
 
 .nav-docs .nav>.active>a
 {
-	padding-left: 18px;
+	padding-left: 15px;
 	font-weight: 700;
 	color: #0f96ba;
 	background-color: transparent;
 	opacity: 1;
+	font-size: 18px;
 }
 
 .command{

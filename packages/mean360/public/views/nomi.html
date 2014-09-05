@@ -24,79 +24,86 @@
 			<h3>2014年度360反馈：选择评价者</h3>
 		</div>
 		<hr class="sectionBreak"/>
-		<h4>1. 行动计划总结</h4>
-		<table class="table table-strip">
-			<tbody>
-				<tr>
-					<td>计划名称</td>
-					<td>完成度</td>
-					<td>完成满意度</td>
-				</tr>
-				<tr>
-					<td>123</td>
-					<td><rating ng-model="rating" max="5" ></rating></td>
-					<td><rating ng-model="rating" max="5" ></rating></td>
-				</tr>
-				<tr>
-					<td>123</td>
-					<td><rating ng-model="rating" max="5" ></rating></td>
-					<td><rating ng-model="rating" max="5" ></rating></td>
-				</tr>
-			</tbody>
-		</table>
-		<hr class="sectionBreak"/>
-		<h4>2. 评价组提名</h4>
-		<div ng-show="!isFinish">
+		<div ng-show="phase == 1">
+			<h4>1. 行动计划总结</h4>
+			<table class="table table-strip">
+				<tbody>
+					<tr>
+						<td>计划名称</td>
+						<td>完成度</td>
+						<td>完成满意度</td>
+					</tr>
+					<tr>
+						<td>123</td>
+						<td><rating ng-model="rating" max="5" ></rating></td>
+						<td><rating ng-model="rating" max="5" ></rating></td>
+					</tr>
+					<tr>
+						<td>123</td>
+						<td><rating ng-model="rating" max="5" ></rating></td>
+						<td><rating ng-model="rating" max="5" ></rating></td>
+					</tr>
+				</tbody>
+			</table>
+			<hr/>
+			<div class="text-center">
+				<button class="btn btn-default" ng-click="phase = 2">下一步</button>
+			</div>
+		</div>
+		<div ng-show="phase == 2">
+			<h4>2. 评价组提名</h4>
 			<div ng-repeat="item in nomi">
-			<div class="row">
-				<div class="col-md-12">
-					<div>
-						<h4>{{item.name}}</h4>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div ng-repeat="choose in item.choose">
-					<div class="col-md-4 col-sm-6">
-						<div class="card">
-							<div class="pull-left photo">
-							<img src="mean360/assets/img/account.jpg" />
-						</div>
-						<div class="pull-left">
-							<div>姓名：{{choose.name}}</div>
-							<div>职位：{{choose.position}}</div>
-							<div>部门：{{choose.department}}</div>
-						</div>
-						<div class="pull-right">
-							<button ng-click="delCandidate($index,$parent.$index)" class="close">&times;</button>
-						</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div>
+							<h4>{{item.name}}</h4>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 col-sm-6" 
-					ng-show="canAdd($index)" ng-click="show($index)">
-					<div class=" card addPerson">
-						<div class="glyphicon glyphicon-plus"></div>
+				<div class="row">
+					<div ng-repeat="choose in item.choose">
+						<div class="col-md-4 col-sm-6">
+							<div class="card">
+								<div class="pull-left photo">
+								<img src="mean360/assets/img/account.jpg" />
+							</div>
+							<div class="pull-left">
+								<div>姓名：{{choose.name}}</div>
+								<div>职位：{{choose.position}}</div>
+								<div>部门：{{choose.department}}</div>
+							</div>
+							<div class="pull-right">
+								<button ng-click="delCandidate($index,$parent.$index)" class="close">&times;</button>
+							</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6" 
+						ng-show="canAdd($index)" ng-click="show($index)">
+						<div class=" card addPerson">
+							<div class="glyphicon glyphicon-plus"></div>
+						</div>
 					</div>
 				</div>
+				<div class="row" ng-show="canShow($index)">
+					<table ng-table="candidatesTable[$index]" class="table">
+	        			<tr ng-repeat="user in $data">
+	            			<td data-title="'姓名'">{{user.name}}</td>
+	            			<td data-title="'职位'">{{user.position}}</td>
+	            			<td data-title="'部门'">{{user.department}}</td>
+	            			<td data-title="'操作'"><button ng-click="addCandidate($index,$parent.$index)" class="btn">添加</button></td>
+	        			</tr>
+	        		</table>
+				</div>
 			</div>
-			<div class="row" ng-show="canShow($index)">
-				<table ng-table="candidatesTable[$index]" class="table">
-        			<tr ng-repeat="user in $data">
-            			<td data-title="'姓名'">{{user.name}}</td>
-            			<td data-title="'职位'">{{user.position}}</td>
-            			<td data-title="'部门'">{{user.department}}</td>
-            			<td data-title="'操作'"><button ng-click="addCandidate($index,$parent.$index)" class="btn">添加</button></td>
-        			</tr>
-        		</table>
+			<hr class="sectionBreak"/>
+			<div class="command">
+				<button class="btn btn-default" ng-click="phase = 1">上一步</button>
+				<button class="btn btn-primary" ng-click="finish()">提交</button>
 			</div>
 		</div>
-		<hr class="sectionBreak"/>
-		<div class="command">
-			<button class="btn btn-primary" ng-click="finish()">提交</button>
+		<div ng-show="phase == 3">
+			恭喜您，提名完成！
 		</div>
-		</div>
-		
-		<div ng-show="isFinish">恭喜您，提名完成！</div>
 	</div>
 </section>
