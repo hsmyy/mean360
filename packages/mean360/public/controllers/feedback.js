@@ -62,6 +62,9 @@ angular.module('mean.mean360').controller('FeedbackController', [
                 xAxis: {
                     categories: $scope.score.category
                 },
+                yAxis: {
+                	title : ''
+                },
 
                 loading: false
             };
@@ -135,6 +138,12 @@ angular.module('mean.mean360').controller('FeedbackController', [
             xAxis: {
                 categories: $scope.selfDiff.categories
             },
+            yAxis: {
+            	title : {
+            		text : '',
+            		align : 'high'
+            	}
+            },
             credits: {
                 enabled: false
             },
@@ -152,15 +161,15 @@ angular.module('mean.mean360').controller('FeedbackController', [
         	data : [
                     {
                         name: '上级',
-                        data: [107, 31, 635, 203, 2]
+                        data: [4.0, 3.5, 3.6, 4.2, 2.8]
                     },
                     {
                         name: '同事',
-                        data: [133, 156, 947, 408, 6]
+                        data: [3.5, 4.2, 3.7, 4.0, 4.3]
                     },
                     {
                         name: '下级',
-                        data: [973, 914, 4054, 732, 34]
+                        data: [2.8, 3.5, 4.0, 3.5, 4.0]
                     }
                 ]
         };
@@ -192,7 +201,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Population (millions)',
+                    text: '',
                     align: 'high'
                 },
                 labels: {
@@ -383,132 +392,132 @@ angular.module('mean.mean360').controller('FeedbackController', [
             {
                 category: '战略执行',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '战略执行',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '战略执行',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '战略执行',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '前瞻预测',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '前瞻预测',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '前瞻预测',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '目标意识',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '目标意识',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '目标意识',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '团队合作',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '团队合作',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             },
             {
                 category: '团队合作',
                 question: '引导下属将自身工作与组织战略紧密结合，以战略为导向开展工作',
-                self: 43,
-                boss: 20,
-                peer: 30,
-                sub: 40,
-                others: 30,
-                diff: -10
+                self: 4.3,
+                boss: 2.0,
+                peer: 3.0,
+                sub: 4.0,
+                others: 3.0,
+                diff: -1.0
             }
         ];
 

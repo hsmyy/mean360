@@ -1,38 +1,41 @@
-<div class="page-header" data-ng-controller="HeaderController">
-  <div class="logo pull-left">
-    <a class="navbar-brand" ui-sref="home" >360评估反馈系统</a>
-  </div>
-
-  <div class="left pull-left">
-    <ul class="navbar-nav nav">
-      <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-        <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="account">
-    <!-- <div class="text-edit">
+<div class="page-header navbar navbar-static-top bs-docs-nav"
+	data-ng-controller="HeaderController">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle collapsed" type="button"
+				data-toggle="collapse" data-target=".bs-navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" ui-sref="home">360评估反馈系统</a>
+		</div>
+		<nav class="collapse navbar-collapse bs-navbar-collapse"
+			role="navigation">
+			<ul class="navbar-nav nav navbar-left">
+				<li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}"
+					ng-class="{active: $uiRoute}"><a mean-token="item.link"
+					ui-sref='{{item.link}}'>{{item.title}}</a></li>
+			</ul>
+			<div class="account">
+				<!-- <div class="text-edit">
       <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
       <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
     </div> -->
-    <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
-      <li><a ui-sref='auth.register'>注册</a>
-      </li>
-      <li class="divider-vertical"></li>
-      <li><a ui-sref='auth.login'>登录</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav nav" data-ng-show="global.authenticated">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          {{global.user.name}} <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="/logout">退出</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+				<ul class="navbar-nav nav navbar-right" data-ng-hide="global.authenticated">
+					<li><a ui-sref='auth.register'>注册</a></li>
+					<li class="divider-vertical"></li>
+					<li><a ui-sref='auth.login'>登录</a></li>
+				</ul>
+				<ul class="navbar-nav nav navbar-right" data-ng-show="global.authenticated">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> {{global.user.name}} <b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="/logout">退出</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
 </div>

@@ -31,31 +31,33 @@ angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$h
 //                        }];
 
         $http.get('query/question/all').success(function (data) {
-            $scope.questions = data;
+//            $scope.questions = data;
+        	console.log('question load success!');
         }).error(function (data, status) {
-            $scope.questions = [
-                {
-                    'id': '1',
-                    'category': '洞察力',
-                    'question': '可以提出有力的問題，使複雜問題清晰化'
-                },
-                {
-                    'id': '2',
-                    'category': '洞察力',
-                    'question': '指出討論中的漏洞或錯誤'
-                },
-                {
-                    'id': '3',
-                    'category': '洞察力',
-                    'question': '解決問題時，快速發現問題的關鍵原因'
-                },
-                {
-                    'id': '4',
-                    'category': '前瞻性',
-                    'question': '分享行業前沿信息'
-                }
-            ];
+        	
         });
+        $scope.questions = [
+            {
+                'id': '1',
+                'category': '洞察力',
+                'question': '可以提出有力的問題，使複雜問題清晰化'
+            },
+            {
+                'id': '2',
+                'category': '洞察力',
+                'question': '指出討論中的漏洞或錯誤'
+            },
+            {
+                'id': '3',
+                'category': '洞察力',
+                'question': '解決問題時，快速發現問題的關鍵原因'
+            },
+            {
+                'id': '4',
+                'category': '前瞻性',
+                'question': '分享行業前沿信息'
+            }
+        ];
 
 
         // TEST ONLY. Replace this with ajax request.
@@ -72,8 +74,11 @@ angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$h
 //            }
 //        ];
         $http.get('get_evaluatees').success(function (data, status) {
-            $scope.candidates = data;
+//            $scope.candidates = data;
+        	console.log('evlauatee load success!');
         }).error(function (data, status) {
+        	
+        });
             // TODO Handler errors here.
             $scope.candidates = [
                 {
@@ -117,7 +122,7 @@ angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$h
                     ]
                 }
             ];
-        });
+        
 
         $scope.currentPerson = 0;
         $scope.currentQuestion = 0;
