@@ -127,8 +127,9 @@ angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$h
         $scope.currentPerson = 0;
         $scope.currentQuestion = 0;
 
-        $scope.startEval = function (candidate) {
-            $scope.evaluatingCandidate = candidate;
+        $scope.startEval = function (index) {
+            $scope.evaluatingCandidate = $scope.candidates[index];
+            $scope.currentPerson = index;
             $scope.phase = 1;
         };
 
@@ -143,9 +144,22 @@ angular.module('mean.mean360').controller('EvaluationController', ['$scope', '$h
             $scope.phase = step;
         };
 
-        $scope.finishEvaluation = function (candidate) {
-            toastr.success('toast-top-right', candidate.name + '的评估完成');
+        $scope.gotoEvaluationList = function() {
             $scope.phase = 0;
+        };
+
+        $scope.finishEvaluation = function () {
+            toastr.success('toast-top-right', $scope.evaluatingCandidate.name + '的评估完成');
+            $scope.currentPerson += 1;
+            if($scope.currentPerson < $scope.candidates.length) {
+                $scope.evaluatingCandidate = $scope.candidates[$scope.currentPerson];
+            } else {
+                $scope.phase = 2;
+            }
+        };
+
+        $scope.submitEvaluation = function() {
+            $scope.phase = 2;
         };
     }
 ]);

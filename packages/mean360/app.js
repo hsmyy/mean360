@@ -45,7 +45,7 @@ Mean360.register(function(app, auth, database, users) {
 		menu : 'main'
 	});
 
-	Mean360.angularDependencies(['ngTable','highcharts-ng','angular-growl', 'duScroll']);
+	Mean360.angularDependencies(['ngTable','highcharts-ng','duScroll']);
 	/**
 	  //Uncomment to use. Requires meanio@0.3.7 or above
 	  // Save settings with callback

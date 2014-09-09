@@ -32,7 +32,7 @@
 			</div>
 			<div class="guide">
 				<div class="row">
-                    <div class="col-md-6 col-sm-6" data-ng-repeat="candidate in candidates" ng-click="startEval(candidate)" style="cursor:pointer;">
+                    <div class="col-md-6 col-sm-6" data-ng-repeat="candidate in candidates" ng-click="startEval($index)" style="cursor:pointer;">
                         <div class="card">
                         	<div class="pull-left photo">
                                 <img src="{{candidate.img}}" />
@@ -53,6 +53,10 @@
                     </div>
 				</div>
 			</div>
+
+            <div class="submit-button">
+                <button type="button" class="btn btn-primary" ng-click="submitEvaluation()">提交</button>
+            </div>
 		</div>
 
 		<div ng-show="phase == 1">
@@ -98,13 +102,12 @@
             </div>
             <hr class="sectionBreak" />
             <div style="text-align: center;" class="btn-toolbar">
-                <button type="button" class="btn btn-primary" ng-click="finishEvaluation(evaluatingCandidate)">完成</button>
-                <button type="button" class="btn btn-default">临时保存</button>
+                <button type="button" class="btn btn-primary" ng-click="finishEvaluation()">完成&下一个</button>
+                <button type="button" class="btn btn-default" ng-click="gotoEvaluationList()">返回</button>
             </div>
         </div>
 		<div ng-show="phase == 2">
 			<div>您已经完成了评估！</div>
 		</div>
 	</div>
-    <div growl></div>
 </section>

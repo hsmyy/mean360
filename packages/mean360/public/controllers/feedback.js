@@ -6,9 +6,9 @@ angular.module('mean.mean360').controller('FeedbackController', [
     '$document',
     'Global',
     'Feedback',
-    'growl',
     'ngTableParams',
-    function ($scope, $filter, $document, Global, Feedback, growl, NgTableParams) {
+    'toastr',
+    function ($scope, $filter, $document, Global, Feedback, NgTableParams, toastr) {
         $scope.global = Global;
         $scope.package = {
             name: 'feedback'
@@ -650,10 +650,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
         };
 
         $scope.save = function () {
-            growl.addSuccessMessage(
-                'This adds a success message', {
-                    'ttl': 3000
-                });
+            toastr.success('toast-top-right', 'This adds a success message');
         };
         
         $scope.toTop = function(){

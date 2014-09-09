@@ -15,7 +15,6 @@
     "ng-table": "latest",
     "highcharts-ng": "latest",
     "highcharts" : "latest",
-    "angular-growl-2" : "latest",
     "angular-scroll" : "latest"
   }
 }

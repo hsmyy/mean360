@@ -3,7 +3,7 @@
 }
 
 .guide{
-	min-height: 250px;
+	min-height: 380px;
 	padding-top: 15px;
 }
 
@@ -25,4 +25,8 @@
     margin-left: 0;
     margin-right: 0;
     border-bottom: 1px solid #dcdcdc;
+}
+
+.submit-button {
+    text-align: center;
 }
