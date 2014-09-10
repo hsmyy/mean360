@@ -4,6 +4,8 @@ var QuestionService = require('../service/question');
 var ActionPlanService = require('../service/actionPlan');
 var CategoryService = require('../service/category');
 var CycleService = require('../service/cycle');
+
+var mailer = require('express-mailer');
 // The Package is past automatically as first parameter
 module.exports = function(Nomination, app, auth, database) {
 
@@ -87,5 +89,32 @@ module.exports = function(Nomination, app, auth, database) {
     });
   });
 
+  app.get('/sendmail', function(req, res){
+      mailer.extend(app, {
+          from: '@gmail.com',
+          host: 'smtp.gmail.com', // hostname
+          secureConnection: true, // use SSL
+          port: 465, // port for secure SMTP
+          transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+          auth: {
+              user: '@gmail.com',
+              pass: ''
+          }
+      });
 
+      app.mailer.send('email', {
+          to: '@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
+          subject: 'Test Email', // REQUIRED.
+          otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
+      }, function (err) {
+          if (err) {
+              // handle error
+              console.log(err);
+              console.log('There was an error sending the email');
+              return;
+          }
+          console.log('Email Sent');
+      });
+
+  });
 };
