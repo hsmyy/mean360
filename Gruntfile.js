@@ -107,15 +107,24 @@ module.exports = function(grunt) {
       unit: {
         configFile: 'karma.conf.js'
       }
+    },
+    forever: {
+        server:{
+            options: {
+                index: 'server.js',
+                logDir: 'logs'
+            }
+        }
     }
   });
 
   //Load NPM tasks
   require('load-grunt-tasks')(grunt);
+  grunt.loadNpmTasks('grunt-forever');
 
   //Default task(s).
   if (process.env.NODE_ENV === 'production') {
-    grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'concurrent']);
+    grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'forever:server:start']);
   } else {
     grunt.registerTask('default', ['clean', 'jshint', 'csslint', 'concurrent']);
 //	  grunt.registerTask('default', ['clean','concurrent']);
