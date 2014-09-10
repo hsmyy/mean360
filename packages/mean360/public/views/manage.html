@@ -224,7 +224,7 @@
 								<h4>创建问题类型</h4>
 								<div class="well">
 									<form>
-									<input type="text" class="form-control" placeholder="请填入问题类型" ng-model="newCategory">
+									<input type="text" class="form-control" placeholder="请填入问题类型" ng-init="newCategory=''" ng-model="newCategory">
 									<button class="btn btn-default" ng-click="createCategory()">创建类型</button>
 									</form>
 								</div>

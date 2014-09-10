@@ -15,7 +15,12 @@ exports.render = function(req, res) {
   }
 
   function isAdmin() {
-    return req.user && req.user.roles.indexOf('admin') !== -1;
+	  if(req.user !== undefined && req.user.roles !== undefined){
+		  if(req.user.roles.indexOf('admin') !== -1){
+			  return true;
+		  }
+	  }
+	  return false;
   }
 
   // Send some basic starting info to the view
@@ -27,7 +32,7 @@ exports.render = function(req, res) {
       roles: req.user.roles
     } : {},
     modules: modules,
-    isAdmin: isAdmin,
+    isAdmin: isAdmin(),
     adminEnabled: isAdmin() && mean.moduleEnabled('mean-admin')
   });
 };
