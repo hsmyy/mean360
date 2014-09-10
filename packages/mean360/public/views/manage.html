@@ -40,6 +40,7 @@
 						<textarea class="form-control" rows="3" data-ng-model="evaluationDescription"></textarea>
 					</div>
 				</div>
+                Evaluation Description: {{evaluationDescription}}
 				<hr class="sectionBreak"/>
 				<div class="command">
 					<button class="btn btn-primary" data-ng-click="createNewEvaluation()">提交</button>
@@ -99,18 +100,18 @@
 										<div class="row form-row">
 											<label class="col-md-2 text-right">{{group.name}}</label>
 											<div class="col-md-3 text-right">
-												开始时间
+												开始时间:
 											</div>
 											<div class="col-md-4">
 												<div class="input-group">
 													<input type="text" class="form-control"
-													datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-													min-date="minDate" max-date="'2015-06-22'"
-													datepicker-options="dateOptions"
+													datepicker-popup="{{format}}" ng-model="group.startTime" is-open="group.startInput.opened"
+													min-date="group.startInput.minDate" max-date="'2015-06-22'"
+													datepicker-options="group.startInput.dateOptions"
 													date-disabled="disabled(date, mode)" ng-required="true"
 													close-text="Close" /> <span class="input-group-btn">
 													<button type="button" class="btn btn-default"
-														ng-click="open($event)">
+														ng-click="openCalendar($event, group.startInput)">
 														<i class="glyphicon glyphicon-calendar"></i>
 													</button>
 													</span>
@@ -125,15 +126,16 @@
 											<div class="col-md-4">
 												<div class="input-group">
 													<input type="text" class="form-control"
-													datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-													min-date="minDate" max-date="'2015-06-22'"
-													datepicker-options="dateOptions"
+													datepicker-popup="{{format}}" ng-model="group.endTime" is-open="group.endInput.opened"
+													min-date="group.endInput.minDate" max-date="'2015-06-22'"
+													datepicker-options="group.endInput.dateOptions"
 													date-disabled="disabled(date, mode)" ng-required="true"
-													close-text="Close" /> <span class="input-group-btn">
-													<button type="button" class="btn btn-default"
-														ng-click="open($event)">
-														<i class="glyphicon glyphicon-calendar"></i>
-													</button>
+													close-text="Close" />
+                                                    <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default"
+                                                            ng-click="openCalendar($event, group.endInput)">
+                                                            <i class="glyphicon glyphicon-calendar"></i>
+                                                        </button>
 													</span>
 												</div>
 											</div>
@@ -144,10 +146,10 @@
 												自动邮件提醒未完成者
 											</div>
 											<div class="col-md-4">
-												<select multiple class="form-control">
-													<option value="">结束前10天</option>
-													<option value="">结束前5天</option>
-													<option value="">结束前3天</option>
+												<select ng-model="group.autoReminder" class="form-control">
+													<option value="10">结束前10天</option>
+													<option value="5">结束前5天</option>
+													<option value="3">结束前3天</option>
 												</select>
 											</div>
 										</div>
@@ -157,10 +159,9 @@
 												发送每日进度报告给管理者
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox">
+												<input type="checkbox" ng-model="group.autoSendDailyProgress">
 											</div>
 										</div>
-										
 									</div>
 								</form>
 							</div>
