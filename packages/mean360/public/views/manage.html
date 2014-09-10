@@ -72,9 +72,9 @@
 						</div>
 						<hr class="sectionBreak"/>
 						<div class="command">
-							<button class="btn btn-default">开始</button>
-							<button class="btn btn-default">提醒未完成者</button>
-							<button class="btn btn-primary">结束</button>
+							<button class="btn btn-default" ng-click="startPeriod($index)">开始</button>
+							<button class="btn btn-default" ng-click="notifyPeriod($index)">提醒未完成者</button>
+							<button class="btn btn-primary" ng-click="finishPeriod($index)">结束</button>
 						</div>
 					</tab>
 				</tabset>
@@ -215,7 +215,6 @@
 								</tr>
 								<tr ng-hide="group.$hideRows" ng-repeat="user in group.data">
 									<td sortable="question" data-title="'題目'">{{user.question}}</td>
-									<td sortable="content" data-title="'行爲'">{{user.content}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -224,22 +223,22 @@
 							<div class="col-md-6">
 								<h4>创建问题类型</h4>
 								<div class="well">
-									<input type="text" class="form-control" placeholder="Text input">
-									<button class="btn btn-default">创建</button>
+									<form>
+									<input type="text" class="form-control" placeholder="请填入问题类型" ng-model="newCategory">
+									<button class="btn btn-default" ng-click="createCategory()">创建类型</button>
+									</form>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<h4>创建问题</h4>
 								<div class="well">
-									<select class="form-control">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
+									<select class="form-control" ng-model="choosedCategory">
+										<option ng-repeat="cat in category track by $index" value="$index">
+											{{cat}}
+										</option>
 									</select>
-									<input type="text" class="form-control" placeholder="Text input">
-									<button class="btn btn-default">创建</button>
+									<input type="text" class="form-control" placeholder="请填入问题" ng-model="newQuestion">
+									<button class="btn btn-default" ng-click="createQuestion()">创建问题</button>
 								</div>
 							</div>
 						</div>
@@ -250,7 +249,7 @@
 				</tabset>
 				<hr class="sectionBreak"/>
 				<div class="command">
-					<button class="btn btn-primary">保存</button>
+					<button class="btn btn-primary" ng-click="save()">保存</button>
 				</div>
 			</div>
 		</div>

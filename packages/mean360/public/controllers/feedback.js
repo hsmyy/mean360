@@ -114,10 +114,6 @@ angular.module('mean.mean360').controller('FeedbackController', [
         	score : 3.8
         }];
         
-        
-
-        
-        
         //section 3
         $scope.selfDiff = {
         	categories : [ '在准确评估下属能力的基础上授予合理的工作权限', '对组织战略有全面深入的理解',
@@ -386,7 +382,6 @@ angular.module('mean.mean360').controller('FeedbackController', [
                 'tags': [ '培养下属', '人际关系经营' ]
             }
         ];
-
         
         var data = [
             {
@@ -650,7 +645,7 @@ angular.module('mean.mean360').controller('FeedbackController', [
         };
 
         $scope.save = function () {
-            toastr.success('toast-top-right', 'This adds a success message');
+            toastr.success('toast-top-right', '行动计划保存成功');
         };
         
         $scope.toTop = function(){

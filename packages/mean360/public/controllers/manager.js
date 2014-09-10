@@ -2,8 +2,8 @@
 
 angular.module('mean.mean360').controller(
 		'ManagerController',
-		[ '$scope', '$filter', 'Global', 'Manager','ngTableParams',
-				function($scope, $filter, Global, Manager, NgTableParams) {
+		[ '$scope', '$filter', 'Global', 'Manager','ngTableParams', 'toastr',
+				function($scope, $filter, Global, Manager, NgTableParams, toastr) {
 			$scope.func = 2;
 			
 			$scope.timeline = [{
@@ -26,58 +26,51 @@ angular.module('mean.mean360').controller(
 				'endTime' : ''
 			}];
 			
+			$scope.category = ['戰略執行','前瞻預測','目標意識'];
+			$scope.newCategory = '愿景规划';
+			$scope.choosedCategory = 0;
+			$scope.newQuestion = '能够很好地预测行业未来发展方向';
+			
 			var data = [ {
 				category : '戰略執行',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			}, {
 				category : '戰略執行',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			}, {
 				category : '戰略執行',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			}, {
 				category : '戰略執行',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			}, {
 				category : '前瞻預測',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			}, {
 				category : '前瞻預測',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			}, {
 				category : '前瞻預測',
-				question : 'Tiancum',
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
+			}, {
+				category : '目標意識',
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
+			}, {
+				category : '目標意識',
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作',
 				content : '123'
 			}, {
 				category : '目標意識',
-				question : 'Tiancum',
-				content : '123'
-			}, {
-				category : '目標意識',
-				question : 'Tiancum',
-				content : '123'
-			}, {
-				category : '目標意識',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			}, {
 				category : '團隊合作',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			}, {
 				category : '團隊合作',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			}, {
 				category : '團隊合作',
-				question : 'Tiancum',
-				content : '123'
+				question : '善于建立和维持广泛、友好的人际关系来帮助开展工作'
 			} ];
 
 			$scope.tableParams = new NgTableParams(
@@ -97,5 +90,39 @@ angular.module('mean.mean360').controller(
 									params.page() * params.count()));
 						}
 					});
+			$scope.startPeriod = function(index){
+				toastr.success('toast-top-right', $scope.timeline[index].name + '开始');
+			};
+			
+			$scope.notifyPeriod = function(index){
+				toastr.success('toast-top-right', '未完成' + $scope.timeline[index].name + '的相关人员已经被邮件提醒');
+			};
+			
+			$scope.finishPeriod = function(index){
+				toastr.success('toast-top-right', $scope.timeline[index].name + '结束');
+			};
+			
+			$scope.save = function(){
+				toastr.success('toast-top-right', '保存成功！');
+			};
+			
+			$scope.createCategory = function(){
+				var newCate = $scope.newCategory.trim();
+				if(newCate.length > 0){
+					$scope.category.push(newCate);
+				}
+			};
+			
+			$scope.createQuestion = function(){
+				var cate = $scope.category[$scope.choosedCategory];
+				var newQues = $scope.newQuestion.trim();
+				if(newQues.length > 0){
+					data.push({
+						category : cate,
+						question : newQues
+					});
+					$scope.tableParams.reload();
+				}
+			};
 		}
 ]);
