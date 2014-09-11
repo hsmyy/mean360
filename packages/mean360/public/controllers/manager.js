@@ -128,7 +128,7 @@ angular.module('mean.mean360').controller(
                 var newCate = $scope.newCategory.trim();
                 if (newCate.length > 0) {
                     $scope.category.push(newCate);
-;                }
+                }
             };
 
             $scope.createQuestion = function () {
