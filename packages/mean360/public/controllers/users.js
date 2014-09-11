@@ -85,6 +85,6 @@ angular.module('mean.mean360').controller(
 
             $scope.changeSection = function(idx){
                 $scope.page = idx;
-            }
+            };
         }
     ]);

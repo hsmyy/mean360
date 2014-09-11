@@ -117,4 +117,9 @@ module.exports = function(Nomination, app, auth, database) {
       });
 
   });
+
+  app.get('/download', function(req, res){
+     var file = __dirname + '../../../../photos/ninja.png';
+      res.download(file);
+  });
 };
