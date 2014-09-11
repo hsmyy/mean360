@@ -1,0 +1,181 @@
+<section data-ng-controller="UserAdminController" class="container">
+    <div id="wrapper" class="row-fluid">
+        <div class="col-md-2">
+            <nav class="nav-docs" role="complementary">
+                <div class="span3 " style="width: auto;">
+                    <ul class="nav">
+                        <li class="active"><a id="started-group"
+                                              href="#!/users/#" prevent-default=""
+                                              sscroll-to="getting-started-overview">目录</a>
+                            <ul class="nav">
+                                <li class=""><a href="#!/users/#" prevent-default=""
+                                                prevent-default="" data-title="Overview" ng-click="changeSection(0)">批量创建新用户</a></li>
+                                <li class=""><a href="#!/users/#" prevent-default=""
+                                                prevent-default="" data-title="Installation"
+                                                ng-click="changeSection(1)">管理用户</a></li>
+                                <li class=""><a href="#!/users/#" prevent-default=""
+                                                prevent-default="" data-title="Installation"
+                                                ng-click="changeSection(2)">管理应用</a></li>
+                            </ul></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="col-md-10 col-md-offset-2">
+        <div ng-if="page == 0">
+            <h4>批量创建新用户</h4>
+            <hr class="breakSection" />
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">用户名前缀</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        <span class="help-block">初始密码与用户名相同</span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">用户权限</label>
+                    <div class="col-sm-10">
+                        <select multiple>
+                            <option>1</option>
+                            <option>1</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <hr/>
+            <div class="command">
+                <button ng-click="" class="btn btn-primary">创建</button>
+            </div>
+        </div>
+        <div ng-if="page == 1">
+            <h4>管理用户</h4>
+            <hr/>
+            <div class="row">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">
+                            搜索：
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="用户名称" ng-model="userSearch">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>用户名</td>
+                        <td>部门</td>
+                        <td>职位</td>
+                        <td>权限</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in users | filter:userSearch">
+                        <td>
+                            <div ng-if="user.mode == 0">
+                                {{user.name}}
+                            </div>
+                            <div ng-if="user.mode == 1">
+                                <input type="text" class="form-control" placeholder="用户名" ng-model="user.name" >
+                            </div>
+                        </td>
+                        <td>
+                            <div ng-if="user.mode == 0">
+                                {{user.department}}
+                            </div>
+                            <div ng-if="user.mode == 1">
+                                <input type="text" class="form-control" placeholder="用户名" ng-model="user.department">
+                            </div>
+                        </td>
+                        <td>
+                            <div ng-if="user.mode == 0">
+                                {{user.position}}
+                            </div>
+                            <div ng-if="user.mode == 1">
+                                <input type="text" class="form-control" placeholder="用户名" ng-model="user.position">
+                            </div>
+                        </td>
+                        <td>
+                            <div ng-if="user.mode == 0">
+                                {{user.roles}}
+                            </div>
+                            <div ng-if="user.mode == 1">
+                                <input type="text" class="form-control" placeholder="用户名" ng-model="user.roles">
+                            </div>
+                        </td>
+                        <td>
+                            <div ng-if="user.mode == 0">
+                                <button class="btn btn-default" ng-click="changeUserEditMode($index)">修改</button>
+                            </div>
+                            <div ng-if="user.mode == 1">
+                                <button class="btn btn-default" ng-click="saveUserEdit($index)">保存</button>
+                                <button class="btn btn-default" ng-click="cancelUserEdit($index)">取消</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-if="page == 2">
+            <h4>管理应用</h4>
+            <hr/>
+            <div class="row">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">
+                            搜索：
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="用户名称" ng-model="appSearch">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <td>应用名</td>
+                    <td>权限</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="app in apps | filter:appSearch">
+                    <td>
+                        <div ng-if="app.mode == 0">
+                            {{app.name}}
+                        </div>
+                        <div ng-if="app.mode == 1">
+                            <input type="text" class="form-control" placeholder="应用名" ng-model="app.name" >
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-if="app.mode == 0">
+                            {{app.department}}
+                        </div>
+                        <div ng-if="app.mode == 1">
+                            <input type="text" class="form-control" placeholder="用户名" ng-model="app.department">
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-if="app.mode == 0">
+                            <button class="btn btn-default" ng-click="changeAppEditMode($index)">修改</button>
+                        </div>
+                        <div ng-if="app.mode == 1">
+                            <button class="btn btn-default" ng-click="saveAppEdit($index)">保存</button>
+                            <button class="btn btn-default" ng-click="cancelAppEdit($index)">取消</button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
