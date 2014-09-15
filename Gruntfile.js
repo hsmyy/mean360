@@ -69,7 +69,7 @@ module.exports = function(grunt) {
     },
     nodemon: {
       dev: {
-        script: 'server.js',
+        script: 'server2.js',
         options: {
           args: [],
           ignore: ['node_modules/**'],
@@ -111,7 +111,7 @@ module.exports = function(grunt) {
     forever: {
         server:{
             options: {
-                index: 'server.js',
+                index: 'server2.js',
                 logDir: 'logs'
             }
         }
