@@ -1,3 +1,30 @@
+# 360 Feedback Scenario
+
+## General View
+Generally, it has 5 steps:
+* Warmup : 3rd party will send warmup mail or other material on behalf of the company to tell employees the coming 360 evaluation and the background knowledge.
+* Nomination : evaluatee nominates evaluater
+* Evaluation : evaluater evaluate evaluatee
+* Feedback : consultant(or manager) see the feedback report, then make some action plan for the report
+* Feedback Meeting : consultant(or manager) and evaluatee have a communiation and talk with each other to make a final version IDP.
+
+## Warmup
+1. 3rd party send warmup mail
+2. consultant make questionnaire
+3. 3rd party make configuration
+
+## Nomination
+1. evaluatee make their IDP self evlauation
+2. evaluatee choose person
+
+## Evaluation
+1. evaluater evaluate
+
+## Feedback
+1. Consultant make IDP
+2. Meeting to discuss
+
+
 # [![MEAN Logo](http://www.mean.io/img/logos/meanlogo.png)](http://mean.io/) MEAN Stack
 
 [![Build Status](https://travis-ci.org/linnovate/mean.png?branch=master)](https://travis-ci.org/linnovate/mean)
