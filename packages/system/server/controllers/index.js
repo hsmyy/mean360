@@ -14,11 +14,15 @@ exports.render = function(req, res) {
     });
   }
 
+  var adminPanel = ['admin','consultant'];
+
   function isAdmin() {
 	  if(req.user !== undefined && req.user.roles !== undefined){
-		  if(req.user.roles.indexOf('admin') !== -1){
-			  return true;
-		  }
+          for(var i = 0, n = adminPanel.length; i < n; i += 1){
+              if(req.user.roles.indexOf(adminPanel[i]) !== -1){
+                  return true;
+              }
+          }
 	  }
 	  return false;
   }
