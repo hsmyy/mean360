@@ -41,7 +41,6 @@ angular.module('mean.mean360').controller('AdminController', ['$scope', 'Global'
 
         // Query menus added by modules. Only returns menus that user is allowed to see.
         function queryMenu(name, defaultMenu) {
-
             Menus.query({
                 name: name,
                 defaultMenu: defaultMenu

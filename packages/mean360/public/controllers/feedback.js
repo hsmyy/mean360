@@ -118,7 +118,8 @@ angular.module('mean.mean360').controller('FeedbackController', [
         $scope.selfDiff = {
         	categories : [ '在准确评估下属能力的基础上授予合理的工作权限', '对组织战略有全面深入的理解',
         	                    '为各项工作设置清晰的完成标准和时限', '给关键工作分配更多的人手或其他资源', '有良好的授权意识，愿意將工作分配給下属' ],
-        	data : [ 5, 4, 3, -2, -3 ]
+        	positive : [ 5, 4, 3, 0, 0 ],
+            negative : [ 0, 0, 0, -2, -3 ]
         };
         
         $scope.selfDiffChartConfig = {
@@ -145,8 +146,12 @@ angular.module('mean.mean360').controller('FeedbackController', [
             },
             series: [
                 {
-                    name: '平均分',
-                    data: $scope.selfDiff.data
+                    name: '正向得分',
+                    data: $scope.selfDiff.positive
+                },
+                {
+                    name: '负向得分',
+                    data: $scope.selfDiff.negative
                 }
             ]
         };
