@@ -1,0 +1,62 @@
+<section ng-controller="SettingsController">
+    <div id="wrapper" class="row-fluid">
+        <div class="col-md-2">
+            <nav class="nav-docs" role="complementary">
+                <div class="span3 " style="width: auto;">
+                    <ul class="nav">
+                        <li class="active"><a id="started-group"
+                                              href="#getting-started-overview" prevent-default=""
+                                              sscroll-to="getting-started-overview">目录</a>
+                            <ul class="nav">
+                                <li class=""><a href="#getting-started-overview"
+                                                prevent-default="" data-title="Overview">评价模型</a></li>
+                            </ul></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="col-md-10 col-md-offset-2">
+        <h4>评价模型</h4>
+        <table ng-table="tableParams" class="table">
+            <tbody ng-repeat="group in $groups">
+            <tr class="ng-table-group">
+                <td colspan="{{$columns.length}}"><a href=""
+                                                     ng-click="group.$hideRows = !group.$hideRows"> <span
+                        class="glyphicon"
+                        ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
+                    <strong>{{ group.value }}</strong>
+                </a></td>
+            </tr>
+            <tr ng-hide="group.$hideRows" ng-repeat="user in group.data">
+                <td sortable="question" data-title="'題目'">{{user.question}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <hr class="sectionBreak"/>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>创建问题类型</h4>
+                <div class="well">
+                    <form>
+                        <input type="text" class="form-control" placeholder="请填入问题类型" ng-model="$parent.newCategory">
+                        <button class="btn btn-default" ng-click="createCategory()">创建类型</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>创建问题</h4>
+                <div class="well">
+                    <select class="form-control" ng-model="choosedCategory">
+                        <option ng-repeat="cat in $parent.category track by $index" value="$index">
+                            {{cat}}
+                        </option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="请填入问题" ng-model="$parent.newQuestion">
+                    <button class="btn btn-default" ng-click="createQuestion()">创建问题</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
